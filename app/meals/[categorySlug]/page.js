@@ -1,4 +1,4 @@
-import FilterCard from "@/components/filterCard";
+import FilterCard from "@/components/filter section/filterCard";
 import Meals from "@/components/Meals";
 
 const Category = () => {

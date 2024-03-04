@@ -1,5 +1,5 @@
 import Meals from "@/components/Meals";
-import FilterCard from "@/components/filterCard";
+import FilterCard from "@/components/filter section/filterCard";
 
 const Menu = () => {
   return (

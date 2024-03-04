@@ -1,5 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import MainHeader from "@/components/mainHeader";
+import MainHeader from "@/components/header/mainHeader";
 import BootstrapClient from "@/components/bootstrapClient";
 import "./globals.css";
 

@@ -5,6 +5,7 @@ import NavLink from "./navLink";
 import Image from "next/image";
 import logoImage from "@/assets/images/icon.png";
 import searchImage from "@/assets/images/search-icon.svg";
+import cartImage from "@/assets/images/cart-icon.svg";
 
 const MainHeader = () => {
   return (
@@ -43,6 +44,15 @@ const MainHeader = () => {
                 className="align-self-center opacity-50"
               />
             </div>
+          </div>
+          <div className="collapse navbar-collapse">
+            <Image
+              src={cartImage}
+              alt="cart icon"
+              width={30}
+              height={30}
+              className="align-self-center opacity-50 ms-5"
+            />
           </div>
         </div>
       </nav>
