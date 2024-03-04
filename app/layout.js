@@ -1,3 +1,6 @@
+import "bootstrap/dist/css/bootstrap.min.css";
+import MainHeader from "@/components/mainHeader";
+import BootstrapClient from "@/components/bootstrapClient";
 import "./globals.css";
 
 export const metadata = {
@@ -8,7 +11,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body id="body">
+        <MainHeader />
+        {children}
+        <BootstrapClient />
+      </body>
     </html>
   );
 }
