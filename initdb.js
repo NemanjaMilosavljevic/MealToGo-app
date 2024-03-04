@@ -7,60 +7,66 @@ const dummyMeals = [
     image: "/images/anh-nguyen-kcA-c3f_3FE-unsplash.jpg",
     description: "opis neki  asdsa dasdasas das daasasd asas adasd a",
     price: 100,
-    category: "main dish",
+    category: "main-dishes",
     subcategory: "barbeque",
     vegan: 0,
     fasting: 0,
+    favorite: 0,
   },
   {
     title: "Pomfrit",
     image: "/images/anh-nguyen-kcA-c3f_3FE-unsplash.jpg",
     description: "Pomfrit ",
     price: 50,
-    category: "prilog",
+    category: "side-dishes",
     subcategory: "",
     vegan: 0,
     fasting: 0,
+    favorite: 0,
   },
   {
     title: "Pizza",
     image: "/images/anh-nguyen-kcA-c3f_3FE-unsplash.jpg",
     description: "Pomfrit ",
     price: 27,
-    category: "main dish",
+    category: "main-dishes",
     subcategory: "pizza",
     vegan: 1,
     fasting: 1,
+    favorite: 0,
   },
   {
     title: "Pasta",
     image: "/images/anh-nguyen-kcA-c3f_3FE-unsplash.jpg",
     description: "Pasta ",
     price: 68,
-    category: "main dish",
+    category: "main-dishes",
     subcategory: "pasta",
     vegan: 1,
     fasting: 0,
+    favorite: 0,
   },
   {
     title: "Desert",
     image: "/images/anh-nguyen-kcA-c3f_3FE-unsplash.jpg",
     description: "Desert ",
     price: 123,
-    category: "dessert",
+    category: "desserts",
     subcategory: "",
     vegan: 0,
     fasting: 0,
+    favorite: 0,
   },
   {
     title: "Salad",
     image: "/images/anh-nguyen-kcA-c3f_3FE-unsplash.jpg",
     description: "Salad ",
     price: 56,
-    category: "salad",
+    category: "salads",
     subcategory: "",
     vegan: 1,
     fasting: 1,
+    favorite: 0,
   },
   {
     title: "Jaje",
@@ -71,6 +77,7 @@ const dummyMeals = [
     subcategory: "",
     vegan: 1,
     fasting: 1,
+    favorite: 0,
   },
 ];
 
@@ -85,6 +92,7 @@ db.prepare(
   subcategory TEXT NOT NULL,
   vegan INTEGER,
   fasting INTEGER
+  favorite INTEGER
 )`
 ).run();
 
@@ -100,6 +108,7 @@ async function initData() {
       @subcategory,
       @vegan,
       @fasting
+      @favorite
     )
     `);
 

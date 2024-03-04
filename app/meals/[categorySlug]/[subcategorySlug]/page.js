@@ -1,9 +1,9 @@
 import FilterCard from "@/components/filter section/filterCard";
 import Meals from "@/components/Meals";
-import { filterMealsByCategory } from "@/lib/meals";
+import { filterMealsBySubcategory } from "@/lib/meals";
 
-const CategoryMeals = ({ params }) => {
-  const filteredMeals = filterMealsByCategory(params.categorySlug);
+const SubcategoryMeals = ({ params }) => {
+  const filteredMeals = filterMealsBySubcategory(params.subcategorySlug);
 
   return (
     <div className="d-flex">
@@ -13,4 +13,4 @@ const CategoryMeals = ({ params }) => {
   );
 };
 
-export default CategoryMeals;
+export default SubcategoryMeals;

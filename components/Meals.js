@@ -1,10 +1,8 @@
 import Image from "next/image";
 import "./Meals.css";
-import { getMeals } from "@/lib/meals";
 
-const Meals = () => {
-  const meals = getMeals();
-
+const Meals = ({ meals }) => {
+  console.log("meals", meals);
   return (
     <div className="container">
       <div className="row row-cols-4 my-3">
