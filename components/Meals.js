@@ -1,8 +1,8 @@
 import Image from "next/image";
+import FavoriteMealIcon from "./favoriteMealIcon";
 import "./Meals.css";
 
 const Meals = ({ meals }) => {
-  console.log("meals", meals);
   return (
     <div className="container">
       <div className="row row-cols-4 my-3">
@@ -27,6 +27,7 @@ const Meals = ({ meals }) => {
                       <div>fast</div>
                     </li>
                   </ul>
+                  <FavoriteMealIcon mealId={meal.id} favorite={meal.favorite} />
                   <Image
                     src={meal.image}
                     className="card-img-top"

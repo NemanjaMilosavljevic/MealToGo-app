@@ -91,7 +91,7 @@ db.prepare(
   category TEXT NOT NULL,
   subcategory TEXT NOT NULL,
   vegan INTEGER,
-  fasting INTEGER
+  fasting INTEGER,
   favorite INTEGER
 )`
 ).run();
@@ -107,7 +107,7 @@ async function initData() {
       @category,
       @subcategory,
       @vegan,
-      @fasting
+      @fasting,
       @favorite
     )
     `);
