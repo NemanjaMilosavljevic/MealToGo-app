@@ -1,0 +1,10 @@
+#body .meal-cart-bg {
+  background-color: #404040;
+  border-bottom-right-radius: var(--bs-card-border-radius);
+  border-bottom-left-radius: var(--bs-card-border-radius);
+}
+
+#body .bg-meal-flag {
+  background-color: #67cb18;
+  color: white;
+}
