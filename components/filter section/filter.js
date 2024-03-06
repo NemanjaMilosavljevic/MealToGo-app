@@ -1,6 +1,40 @@
-import "./filter.css";
+"use client";
 
-const Filter = () => {
+import "./filter.css";
+import { useSearchParams, usePathname, useRouter } from "next/navigation";
+import { setPriceRange, createQueryString } from "@/util/util";
+
+const Filter = ({ minPrice, maxPrice }) => {
+  const router = useRouter();
+  const path = usePathname();
+  const searchParams = useSearchParams();
+
+  const setQueryParams = (e) => {
+    if (e.target.checked) {
+      router.push(
+        `${path}?${createQueryString(
+          e.target.name,
+          e.target.name === "price"
+            ? setPriceRange(minPrice, e.target.value)
+            : e.target.checked,
+          searchParams
+        )}`
+      );
+
+      return;
+    }
+
+    router.push(
+      `${path}?${createQueryString(
+        e.target.name,
+        e.target.name === "price"
+          ? setPriceRange(minPrice, e.target.value)
+          : e.target.checked,
+        searchParams
+      )}`
+    );
+  };
+
   return (
     <div className="accordion mt-1 w-100" id="accordionPanelsStayOpenExample">
       <div className="accordion-item">
@@ -28,6 +62,7 @@ const Filter = () => {
                 name="vegge"
                 id="vegge"
                 className="form-check-input"
+                onChange={setQueryParams}
               />
               <label htmlFor="vegge" className="form-check-label">
                 vegge
@@ -62,6 +97,7 @@ const Filter = () => {
                 name="fasting"
                 id="fasting"
                 className="form-check-input"
+                onChange={setQueryParams}
               />
               <label htmlFor="fasting" className="form-check-label">
                 fast
@@ -91,16 +127,22 @@ const Filter = () => {
         >
           <div className="accordion-body">
             <div className="form-check">
-              <label htmlFor="range">Price</label>
               <input
                 type="range"
-                name="range"
-                id="range"
-                className="form-range"
-                min="50"
-                max="100"
+                name="price"
+                id="price"
+                className="form-range rangeInput"
+                min={minPrice}
+                max={maxPrice}
+                defaultValue={maxPrice}
                 step="1"
+                onChange={setQueryParams}
               />
+
+              <div className="d-flex flex-row justify-content-between">
+                <span>&#8364;{minPrice}</span>
+                <span>&#8364;{maxPrice}</span>
+              </div>
             </div>
           </div>
         </div>
