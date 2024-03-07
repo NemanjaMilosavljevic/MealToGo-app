@@ -7,6 +7,9 @@ import {
 } from "@/lib/meals";
 
 const CategoryMeals = ({ params, searchParams }) => {
+  const price = searchParams.price?.includes("-")
+    ? +searchParams.price?.split("-")[1]
+    : +searchParams.price || getMaxPrice().price;
   let filteredMeals;
   if (JSON.stringify(searchParams) === "{}") {
     filteredMeals = filterMealsByCategory(params.categorySlug);
@@ -14,7 +17,7 @@ const CategoryMeals = ({ params, searchParams }) => {
     filteredMeals = filterMealsByQueryParams(
       searchParams.vegge === "true",
       searchParams.fasting === "true",
-      +searchParams.price?.split("-")[1] || getMaxPrice().price,
+      price,
       params.categorySlug,
       "category"
     );

@@ -3,6 +3,10 @@ import FilterCard from "@/components/filter section/filterCard";
 import { getMeals, filterMealsByQueryParams, getMaxPrice } from "@/lib/meals";
 
 const Menu = ({ searchParams }) => {
+  const price = searchParams.price?.includes("-")
+    ? +searchParams.price?.split("-")[1]
+    : +searchParams.price || getMaxPrice().price;
+
   let meals;
   if (JSON.stringify(searchParams) === "{}") {
     meals = getMeals();
@@ -10,7 +14,7 @@ const Menu = ({ searchParams }) => {
     meals = filterMealsByQueryParams(
       searchParams.vegge === "true",
       searchParams.fasting === "true",
-      +searchParams.price?.split("-")[1] || getMaxPrice().price
+      price
     );
   }
 
