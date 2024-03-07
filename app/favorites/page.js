@@ -1,4 +1,4 @@
-import Meals from "@/components/Meals";
+import Meals from "@/components/meals/Meals";
 import { getFavoriteMeals } from "@/lib/meals";
 
 const Favorites = () => {

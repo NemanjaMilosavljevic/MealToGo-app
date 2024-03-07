@@ -12,6 +12,7 @@ const dummyMeals = [
     vegan: 0,
     fasting: 0,
     favorite: 0,
+    quantity: 1,
   },
   {
     title: "Pomfrit",
@@ -23,6 +24,7 @@ const dummyMeals = [
     vegan: 0,
     fasting: 0,
     favorite: 0,
+    quantity: 1,
   },
   {
     title: "Pizza",
@@ -34,6 +36,7 @@ const dummyMeals = [
     vegan: 1,
     fasting: 1,
     favorite: 0,
+    quantity: 1,
   },
   {
     title: "Pasta",
@@ -45,6 +48,7 @@ const dummyMeals = [
     vegan: 1,
     fasting: 0,
     favorite: 0,
+    quantity: 1,
   },
   {
     title: "Desert",
@@ -56,6 +60,7 @@ const dummyMeals = [
     vegan: 0,
     fasting: 0,
     favorite: 0,
+    quantity: 1,
   },
   {
     title: "Salad",
@@ -67,6 +72,7 @@ const dummyMeals = [
     vegan: 1,
     fasting: 1,
     favorite: 0,
+    quantity: 1,
   },
   {
     title: "Jaje",
@@ -78,6 +84,7 @@ const dummyMeals = [
     vegan: 1,
     fasting: 1,
     favorite: 0,
+    quantity: 1,
   },
 ];
 
@@ -92,7 +99,24 @@ db.prepare(
   subcategory TEXT NOT NULL,
   vegan INTEGER,
   fasting INTEGER,
-  favorite INTEGER
+  favorite INTEGER,
+  quantity INTEGER
+)`
+).run();
+
+db.prepare(
+  `CREATE TABLE IF NOT EXISTS card (
+  id INTEGER PRIMARY KEY,
+  title TEXT NOT NULL,
+  image TEXT NOT NULL,
+  description TEXT NOT NULL,
+  price INTEGER,
+  category TEXT NOT NULL,
+  subcategory TEXT NOT NULL,
+  vegan INTEGER,
+  fasting INTEGER,
+  favorite INTEGER,
+  quantity INTEGER
 )`
 ).run();
 
@@ -108,7 +132,8 @@ async function initData() {
       @subcategory,
       @vegan,
       @fasting,
-      @favorite
+      @favorite,
+      @quantity 
     )
     `);
 

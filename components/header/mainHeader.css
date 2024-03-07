@@ -1,0 +1,23 @@
+#body .myCart:hover {
+  cursor: pointer;
+}
+
+#body .headerIndex {
+  z-index: 5;
+}
+
+#body .customBadge {
+  position: absolute;
+  right: 0;
+  top: 30%;
+}
+
+#body .bg-empty {
+  background-color: #686868;
+  color: black;
+  transition: all 0.3s ease-out;
+}
+
+#body .bg-danger {
+  transition: all 0.3s ease-in;
+}

@@ -1,4 +1,4 @@
-import Meals from "@/components/Meals";
+import Meals from "@/components/meals/Meals";
 import FilterCard from "@/components/filter section/filterCard";
 import { getMeals, filterMealsByQueryParams, getMaxPrice } from "@/lib/meals";
 

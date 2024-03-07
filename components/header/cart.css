@@ -1,0 +1,11 @@
+#body .orderCart {
+  position: absolute;
+  min-width: 15vw;
+  min-height: 10vw;
+  top: 80%;
+  right: 0.5%;
+  z-index: 10;
+  border-radius: 10px;
+  padding: 10px;
+  transition: all 0.3s ease-in;
+}

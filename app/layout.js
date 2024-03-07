@@ -2,6 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import MainHeader from "@/components/header/mainHeader";
 import BootstrapClient from "@/components/bootstrapClient";
 import "./globals.css";
+import { getOrders, getTotalPrice } from "@/lib/meals";
 
 export const metadata = {
   title: "Delicious meals",
@@ -9,10 +10,13 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const orders = getOrders();
+  const totalPrice = getTotalPrice().price;
+
   return (
     <html lang="en">
       <body id="body">
-        <MainHeader />
+        <MainHeader orders={orders} totalPrice={totalPrice} />
         {children}
         <BootstrapClient />
       </body>

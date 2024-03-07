@@ -1,6 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import FavoriteMealIcon from "./favoriteMealIcon";
 import "./Meals.css";
+
+import QuantityPicker from "./quantityPicker";
 
 const Meals = ({ meals }) => {
   return (
@@ -50,31 +54,7 @@ const Meals = ({ meals }) => {
                     <p className="card-text mt-3 ps-1">{meal.description}</p>
                   </div>
 
-                  <div className="d-flex justify-content-between mb-3">
-                    <div className="d-flex gap-2">
-                      <button
-                        type="button"
-                        className="btn btn-outline-success text-white"
-                      >
-                        -
-                      </button>
-                      <button
-                        type="button"
-                        className="btn btn-outline-success rounded-3 text-white"
-                      >
-                        1
-                      </button>
-                      <button
-                        type="button"
-                        className="btn btn-outline-success text-white"
-                      >
-                        +
-                      </button>
-                    </div>
-                    <button type="button" className="btn btn-success btn-sm">
-                      ADD TO CART
-                    </button>
-                  </div>
+                  <QuantityPicker mealQuantity={meal.quantity} id={meal.id} />
                 </div>
               </div>
             </div>

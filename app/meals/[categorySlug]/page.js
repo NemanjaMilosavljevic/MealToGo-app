@@ -1,5 +1,5 @@
 import FilterCard from "@/components/filter section/filterCard";
-import Meals from "@/components/Meals";
+import Meals from "@/components/meals/Meals";
 import {
   filterMealsByCategory,
   filterMealsByQueryParams,
