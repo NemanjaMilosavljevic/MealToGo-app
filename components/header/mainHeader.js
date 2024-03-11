@@ -58,6 +58,12 @@ const MainHeader = ({ orders, totalPrice }) => {
                   <li className="nav-item mx-5">
                     <NavLink href="/favorites">FAVORITES</NavLink>
                   </li>
+                  <li className="nav-item mx-5">
+                    <NavLink href="/login">LOGIN</NavLink>
+                  </li>
+                  <li className="nav-item mx-5">
+                    <NavLink href="/logout">LOGOUT</NavLink>
+                  </li>
                 </ul>
                 <div className="input-group ">
                   <input
