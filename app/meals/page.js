@@ -8,6 +8,7 @@ const Menu = ({ searchParams }) => {
     : +searchParams.price || getMaxPrice().price;
 
   let meals;
+
   if (JSON.stringify(searchParams) === "{}") {
     meals = getMeals();
   } else {

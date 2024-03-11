@@ -3,7 +3,6 @@
 import Image from "next/image";
 import FavoriteMealIcon from "./favoriteMealIcon";
 import "./Meals.css";
-
 import QuantityPicker from "./quantityPicker";
 
 const Meals = ({ meals }) => {
