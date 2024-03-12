@@ -120,6 +120,14 @@ db.prepare(
 )`
 ).run();
 
+db.prepare(
+  `CREATE TABLE IF NOT EXISTS users (
+  id INTEGER PRIMARY KEY,
+  email TEXT NOT NULL,
+  password TEXT NOT NULL
+)`
+).run();
+
 async function initData() {
   const stmt = db.prepare(`
     INSERT INTO meals VALUES (
