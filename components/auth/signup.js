@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { signIn } from "next-auth/react";
 
 const createUser = async (e, p) => {
-  const response = await fetch("/api/auth/signup", {
+  const response = await fetch("/api/auth", {
     method: "POST",
     body: JSON.stringify({ email: e, password: p }),
     headers: { "Content-Type": "application/json" },
@@ -15,12 +16,11 @@ const createUser = async (e, p) => {
     throw new Error(data.message || "Something went wrong!");
   }
 
-  console.log("data", data);
   return data;
 };
 
 const Signup = () => {
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredPassword, setEnteredPassword] = useState("");
 
@@ -37,6 +37,14 @@ const Signup = () => {
 
     if (isLogin) {
       // log user in
+
+      const result = await signIn("credentials", {
+        redirect: false,
+        email: enteredEmail,
+        password: enteredPassword,
+      });
+
+      console.log("result", result);
     } else {
       //create new user
       try {
