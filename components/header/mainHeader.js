@@ -8,22 +8,39 @@ import logoImage from "@/assets/images/icon.png";
 import cartImage from "@/assets/images/cart-icon.svg";
 import Cart from "./cart";
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
-import { searchMealsPerTitle } from "@/lib/actions";
+import { usePathname, useRouter } from "next/navigation";
+import { searchMealsPerTitle, getRole } from "@/lib/actions";
 import SearchMeals from "../searchMeals/searchMeals";
+import { signOut } from "next-auth/react";
+import useClientSession from "@/hooks/useClientSession";
 
 const MainHeader = ({ orders, totalPrice }) => {
   const [cartIsVisible, setCartIsVisible] = useState(false);
   const [searchInput, setSearchInput] = useState("");
   const [searchedMeals, setSearchedMeals] = useState([]);
   const path = usePathname();
+  const router = useRouter();
+
+  const [role, setRole] = useState();
+  const [session] = useClientSession(path);
 
   const toggleCart = () => {
+    if (!session) {
+      alert(
+        "This action is not authorize for user which is not login!! Please login first!"
+      );
+      return;
+    }
     setCartIsVisible((prevState) => !prevState);
   };
 
   const searchPerTitle = (e) => {
     setSearchInput(e.target.value);
+  };
+
+  const logoutHandler = async () => {
+    const data = await signOut({ callbackUrl: "/login", redirect: false });
+    router.push(data.url);
   };
 
   useEffect(() => {
@@ -35,6 +52,12 @@ const MainHeader = ({ orders, totalPrice }) => {
       setSearchedMeals(res)
     );
   }, [searchInput]);
+
+  useEffect(() => {
+    getRole(session?.user.email).then((role) => {
+      setRole(role);
+    });
+  }, [session]);
 
   return (
     <>
@@ -52,18 +75,37 @@ const MainHeader = ({ orders, totalPrice }) => {
                   <li className="nav-item mx-5">
                     <NavLink href="/meals">MENU</NavLink>
                   </li>
-                  <li className="nav-item mx-5">
-                    <NavLink href="/order">MY ORDER</NavLink>
-                  </li>
-                  <li className="nav-item mx-5">
-                    <NavLink href="/favorites">FAVORITES</NavLink>
-                  </li>
-                  <li className="nav-item mx-5">
-                    <NavLink href="/login">LOGIN</NavLink>
-                  </li>
-                  <li className="nav-item mx-5">
-                    <NavLink href="/logout">LOGOUT</NavLink>
-                  </li>
+                  {session && (
+                    <li className="nav-item mx-5">
+                      <NavLink href="/order">MY ORDER</NavLink>
+                    </li>
+                  )}
+                  {session && (
+                    <li className="nav-item mx-5">
+                      <NavLink href="/favorites">FAVORITES</NavLink>
+                    </li>
+                  )}
+
+                  {role === "admin" && (
+                    <li className="nav-item mx-5">
+                      <NavLink href="/admin">ADMIN PANEL</NavLink>
+                    </li>
+                  )}
+
+                  {!session && (
+                    <li className="nav-item mx-5">
+                      <NavLink href="/login">LOGIN</NavLink>
+                    </li>
+                  )}
+
+                  {session && (
+                    <li
+                      className="nav-item mx-5 logout"
+                      onClick={logoutHandler}
+                    >
+                      LOGOUT
+                    </li>
+                  )}
                 </ul>
                 <div className="input-group ">
                   <input

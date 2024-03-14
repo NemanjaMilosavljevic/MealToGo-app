@@ -1,4 +1,4 @@
-import { getOrders, getTotalPrice } from "@/lib/meals";
+import { getOrders, getTotalPrice } from "@/lib/db";
 import OrderButtons from "@/components/orders/orderButtons";
 import QuantityPicker from "@/components/orders/quantityPicker";
 import DeleteMealButton from "@/components/orders/deleteMealButton";

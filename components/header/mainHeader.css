@@ -21,3 +21,12 @@
 #body .bg-danger {
   transition: all 0.3s ease-in;
 }
+
+#body .logout {
+  padding: 8px;
+}
+
+#body .logout:hover {
+  color: #257c33;
+  font-weight: bold;
+}

@@ -124,7 +124,8 @@ db.prepare(
   `CREATE TABLE IF NOT EXISTS users (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   email TEXT NOT NULL,
-  password TEXT NOT NULL
+  password TEXT NOT NULL,
+  role TEXT NOT NULL
 )`
 ).run();
 

@@ -2,11 +2,19 @@
 import { useState } from "react";
 import "./favoriteMealIcon.css";
 import { setFavMeal } from "@/lib/actions";
+import { noSession } from "@/lib/actions";
 
 const FavoriteMealIcon = ({ mealId, favorite }) => {
   const [isFavorite, setIsFavorite] = useState(!!favorite);
 
   const markMealAsFavorite = () => {
+    if (noSession()) {
+      alert(
+        "This action is not authorize for user which is not login!! Please login first!"
+      );
+      return;
+    }
+
     setIsFavorite((prevState) => !prevState);
     setFavMeal(!isFavorite ? 1 : 0, mealId);
   };

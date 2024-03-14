@@ -4,7 +4,7 @@ import {
   filterMealsBySubcategory,
   getMaxPrice,
   filterMealsByQueryParams,
-} from "@/lib/meals";
+} from "@/lib/db";
 
 const SubcategoryMeals = ({ params, searchParams }) => {
   const price = searchParams.price?.includes("-")

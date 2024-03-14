@@ -1,6 +1,6 @@
 import Meals from "@/components/meals/Meals";
 import FilterCard from "@/components/filter section/filterCard";
-import { getMeals, filterMealsByQueryParams, getMaxPrice } from "@/lib/meals";
+import { getMeals, filterMealsByQueryParams, getMaxPrice } from "@/lib/db";
 
 const Menu = ({ searchParams }) => {
   const price = searchParams.price?.includes("-")

@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import MainHeader from "@/components/header/mainHeader";
 import BootstrapClient from "@/components/bootstrapClient";
 import "./globals.css";
-import { getOrders, getTotalPrice } from "@/lib/meals";
+import { getOrders, getTotalPrice } from "@/lib/db";
 
 export const metadata = {
   title: "Delicious meals",

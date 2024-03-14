@@ -1,4 +1,4 @@
-import { getUsers } from "@/lib/meals";
+import { getUsers } from "@/lib/db";
 
 export default function Home() {
   const users = getUsers();

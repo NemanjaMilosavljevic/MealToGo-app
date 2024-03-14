@@ -2,7 +2,7 @@ import Filter from "./filter";
 import MealCategoryFilter from "./mealCategoryFilter";
 import Breadcrumb from "./breadcrumb";
 import "./filterCard.css";
-import { getMinPrice, getMaxPrice } from "@/lib/meals";
+import { getMinPrice, getMaxPrice } from "@/lib/db";
 
 const FilterCard = () => {
   const minPrice = getMinPrice().price;

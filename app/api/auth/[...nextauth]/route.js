@@ -1,11 +1,11 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { verifyPassword } from "@/lib/auth";
-import { getUser } from "@/lib/meals";
+import { getUser } from "@/lib/db";
 
-const handler = NextAuth({
+export const authOptions = {
   session: {
-    jwt: true,
+    strategy: "jwt",
   },
   providers: [
     CredentialsProvider({
@@ -25,10 +25,12 @@ const handler = NextAuth({
           throw new Error("Could not log you in!");
         }
 
-        return { email: user.email };
+        return { email: user.email, role: user.role };
       },
     }),
   ],
-});
+};
+
+const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST };
