@@ -4,14 +4,12 @@ import "./favoriteMealIcon.css";
 import { setFavMeal } from "@/lib/actions";
 import { noSession } from "@/lib/actions";
 
-const FavoriteMealIcon = ({ mealId, favorite }) => {
+const FavoriteMealIcon = ({ mealId, favorite, togglePopupInfo }) => {
   const [isFavorite, setIsFavorite] = useState(!!favorite);
 
   const markMealAsFavorite = async () => {
     if (await noSession()) {
-      alert(
-        "This action is not authorize for user which is not login!! Please login first!"
-      );
+      togglePopupInfo(mealId);
       return;
     }
 

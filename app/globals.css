@@ -4,3 +4,18 @@
   background-color: rgb(11, 12, 14);
   overflow-x: hidden;
 }
+.error-wrapper {
+  display: flex;
+  justify-content: center;
+  background-color: #8b8585;
+  width: 30%;
+  margin: auto;
+  margin-top: 5rem;
+  border-radius: 10px;
+}
+
+.error {
+  text-align: center;
+  color: rgb(134, 25, 25);
+  margin-top: 1rem;
+}

@@ -20,7 +20,7 @@ const Menu = ({ searchParams }) => {
   }
 
   return (
-    <div className="d-flex">
+    <div className="d-flex position-relative">
       <FilterCard />
       <Meals meals={meals} />
     </div>

@@ -13,6 +13,8 @@ import { searchMealsPerTitle, getRole } from "@/lib/actions";
 import SearchMeals from "../searchMeals/searchMeals";
 import { signOut } from "next-auth/react";
 import useClientSession from "@/hooks/useClientSession";
+import InfoPopup from "../info/infoPopup";
+import useTogglePopup from "@/hooks/useTogglePopup";
 
 const MainHeader = ({ orders, totalPrice }) => {
   const [cartIsVisible, setCartIsVisible] = useState(false);
@@ -24,13 +26,15 @@ const MainHeader = ({ orders, totalPrice }) => {
   const [role, setRole] = useState();
   const [session] = useClientSession(path);
 
+  //toggle info popup
+  const [showPopup, togglePopupInfoHandler] = useTogglePopup();
+
   const toggleCart = () => {
     if (!session) {
-      alert(
-        "This action is not authorize for user which is not login!! Please login first!"
-      );
+      togglePopupInfoHandler(1);
       return;
     }
+
     setCartIsVisible((prevState) => !prevState);
   };
 
@@ -61,6 +65,7 @@ const MainHeader = ({ orders, totalPrice }) => {
 
   return (
     <>
+      {showPopup && <InfoPopup togglePopupInfo={togglePopupInfoHandler} />}
       {searchInput && <SearchMeals searchedMeals={searchedMeals} />}
       <div className="position-relative">
         <header className="d-flex bg-light bg-opacity-25 container-fluid justify-content-between headerIndex">

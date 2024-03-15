@@ -4,14 +4,12 @@ import { useState } from "react";
 import { updateMealQuantity, saveMealInCart } from "@/lib/actions";
 import { noSession } from "@/lib/actions";
 
-const QuantityPicker = ({ mealQuantity, id }) => {
+const QuantityPicker = ({ mealQuantity, id, togglePopupInfo }) => {
   const [quantity, setQuantity] = useState(mealQuantity);
 
   const addMealToCart = async (id) => {
     if (await noSession()) {
-      alert(
-        "This action is not authorize for user which is not login!! Please login first!"
-      );
+      togglePopupInfo(id);
       return;
     }
 
@@ -27,9 +25,7 @@ const QuantityPicker = ({ mealQuantity, id }) => {
 
   const incrementQuantity = async (q, id) => {
     if (await noSession()) {
-      alert(
-        "This action is not authorize for user which is not login!! Please login first!"
-      );
+      togglePopupInfo(id);
       return;
     }
 
@@ -41,9 +37,7 @@ const QuantityPicker = ({ mealQuantity, id }) => {
 
   const decrementQuantity = async (q, id) => {
     if (await noSession()) {
-      alert(
-        "This action is not authorize for user which is not login!! Please login first!"
-      );
+      togglePopupInfo(id);
       return;
     }
 

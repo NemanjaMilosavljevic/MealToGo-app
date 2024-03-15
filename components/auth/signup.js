@@ -41,6 +41,8 @@ const Signup = () => {
 
       if (!result.error) {
         router.replace(result.url);
+      } else {
+        throw new Error("greska");
       }
     } else {
       //create new user
