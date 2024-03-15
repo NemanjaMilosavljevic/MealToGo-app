@@ -7,8 +7,8 @@ import { noSession } from "@/lib/actions";
 const QuantityPicker = ({ mealQuantity, id }) => {
   const [quantity, setQuantity] = useState(mealQuantity);
 
-  const addMealToCart = (id) => {
-    if (noSession()) {
+  const addMealToCart = async (id) => {
+    if (await noSession()) {
       alert(
         "This action is not authorize for user which is not login!! Please login first!"
       );
@@ -25,8 +25,8 @@ const QuantityPicker = ({ mealQuantity, id }) => {
     updateMealQuantity(1, id);
   };
 
-  const incrementQuantity = (q, id) => {
-    if (noSession()) {
+  const incrementQuantity = async (q, id) => {
+    if (await noSession()) {
       alert(
         "This action is not authorize for user which is not login!! Please login first!"
       );
@@ -39,8 +39,8 @@ const QuantityPicker = ({ mealQuantity, id }) => {
     updateMealQuantity(q, id);
   };
 
-  const decrementQuantity = (q, id) => {
-    if (noSession()) {
+  const decrementQuantity = async (q, id) => {
+    if (await noSession()) {
       alert(
         "This action is not authorize for user which is not login!! Please login first!"
       );

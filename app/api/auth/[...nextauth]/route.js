@@ -25,7 +25,7 @@ export const authOptions = {
           throw new Error("Could not log you in!");
         }
 
-        return { email: user.email, role: user.role };
+        return { email: user.email };
       },
     }),
   ],

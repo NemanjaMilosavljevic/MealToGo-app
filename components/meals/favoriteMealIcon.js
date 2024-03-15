@@ -7,8 +7,8 @@ import { noSession } from "@/lib/actions";
 const FavoriteMealIcon = ({ mealId, favorite }) => {
   const [isFavorite, setIsFavorite] = useState(!!favorite);
 
-  const markMealAsFavorite = () => {
-    if (noSession()) {
+  const markMealAsFavorite = async () => {
+    if (await noSession()) {
       alert(
         "This action is not authorize for user which is not login!! Please login first!"
       );
