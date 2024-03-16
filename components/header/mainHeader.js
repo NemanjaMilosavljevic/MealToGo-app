@@ -9,7 +9,11 @@ import cartImage from "@/assets/images/cart-icon.svg";
 import Cart from "./cart";
 import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { searchMealsPerTitle, getRole } from "@/lib/actions";
+import {
+  searchMealsPerTitle,
+  getRole,
+  clearOrdersFromCard,
+} from "@/lib/actions";
 import SearchMeals from "../searchMeals/searchMeals";
 import { signOut } from "next-auth/react";
 import useClientSession from "@/hooks/useClientSession";
@@ -43,6 +47,7 @@ const MainHeader = ({ orders, totalPrice }) => {
   };
 
   const logoutHandler = async () => {
+    clearOrdersFromCard();
     const data = await signOut({ callbackUrl: "/login", redirect: false });
     router.push(data.url);
   };
@@ -82,7 +87,7 @@ const MainHeader = ({ orders, totalPrice }) => {
                   </li>
                   {session && (
                     <li className="nav-item mx-5">
-                      <NavLink href="/order">MY ORDER</NavLink>
+                      <NavLink href="/order">ORDER</NavLink>
                     </li>
                   )}
                   {session && (
@@ -92,8 +97,32 @@ const MainHeader = ({ orders, totalPrice }) => {
                   )}
 
                   {role === "admin" && (
-                    <li className="nav-item mx-5">
-                      <NavLink href="/admin">ADMIN PANEL</NavLink>
+                    <li className="nav-item admin dropdown">
+                      <span
+                        className="dropdown-toggle"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        ADMIN
+                      </span>
+                      <ul className="dropdown-menu dropdown-menu-dark">
+                        <li>
+                          <NavLink
+                            className="dropdown-item"
+                            href="/admin/create-meal"
+                          >
+                            CREATE MEAL
+                          </NavLink>
+                        </li>
+                        <li>
+                          <NavLink
+                            className="dropdown-item"
+                            href="/admin/dashboard"
+                          >
+                            EDIT
+                          </NavLink>
+                        </li>
+                      </ul>
                     </li>
                   )}
 

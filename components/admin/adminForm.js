@@ -1,19 +1,39 @@
-const AdminPage = () => {
+"use client";
+
+import { createMeal } from "@/lib/actions";
+import { useFormState } from "react-dom";
+import AdminFormButton from "./adminFormButton";
+
+const AdminForm = () => {
+  const [state, formAction] = useFormState(createMeal, { errorMessage: null });
+
   return (
     <div className="container-fluid w-50 my-3">
-      <form className="row g-3">
+      <form className="row g-3" action={formAction}>
         <div className="col-md-6">
           <label htmlFor="title" className="form-label">
             Title
           </label>
-          <input type="text" className="form-control" id="title" required />
+          <input
+            type="text"
+            className="form-control"
+            id="title"
+            name="title"
+            required
+          />
         </div>
 
         <div className="col-md-6">
           <label htmlFor="price" className="form-label">
             Price
           </label>
-          <input type="number" className="form-control" id="price" required />
+          <input
+            type="number"
+            className="form-control"
+            id="price"
+            name="price"
+            required
+          />
         </div>
 
         <div className="mb-3">
@@ -24,6 +44,7 @@ const AdminPage = () => {
             className="form-control"
             id="description"
             rows="3"
+            name="description"
             required
           ></textarea>
         </div>
@@ -32,11 +53,16 @@ const AdminPage = () => {
           <label htmlFor="category" className="form-label">
             Category
           </label>
-          <select id="category" className="form-select" required>
-            <option selected aria-readonly>
+          <select
+            id="category"
+            className="form-select"
+            name="category"
+            required
+          >
+            <option selected disabled aria-readonly>
               Category
             </option>
-            <option value="buttonreakfast">Breakfast</option>
+            <option value="breakfast">Breakfast</option>
             <option value="main-dishes">Main dish</option>
             <option value="salads">Salads</option>
             <option value="desserts">Desserts</option>
@@ -48,8 +74,8 @@ const AdminPage = () => {
           <label htmlFor="subcategory" className="form-label">
             Subcategory
           </label>
-          <select id="subcategory" className="form-select" required>
-            <option selected aria-readonly>
+          <select id="subcategory" className="form-select" name="subcategory">
+            <option selected disabled aria-readonly>
               Subcategory
             </option>
             <option value="barbeque">Barbeque</option>
@@ -60,13 +86,23 @@ const AdminPage = () => {
 
         <div className="col-12">
           <div className="form-check">
-            <input className="form-check-input" type="checkbox" id="vegan" />
+            <input
+              className="form-check-input"
+              type="checkbox"
+              id="vegan"
+              name="vegan"
+            />
             <label className="form-check-label" htmlFor="vegan">
               Vegan
             </label>
           </div>
           <div className="form-check">
-            <input className="form-check-input" type="checkbox" id="fasting" />
+            <input
+              className="form-check-input"
+              type="checkbox"
+              id="fasting"
+              name="fasting"
+            />
             <label className="form-check-label" htmlFor="fasting">
               Fasting
             </label>
@@ -74,20 +110,27 @@ const AdminPage = () => {
         </div>
 
         <div className="mb-3">
-          <label htmlFor="fileImage" className="form-label">
+          <label htmlFor="image" className="form-label">
             Upload image
           </label>
-          <input className="form-control" type="file" id="fileImage" required />
+          <input
+            className="form-control"
+            type="file"
+            id="image"
+            name="image"
+            required
+          />
         </div>
 
-        <div className="col-12">
-          <button type="submit" className="btn btn-primary">
-            Create meal
-          </button>
+        <div className="col-12 d-flex">
+          <AdminFormButton />
+          {state.errorMessage && (
+            <p className="ms-5 mt-2 text-danger">{state.errorMessage}</p>
+          )}
         </div>
       </form>
     </div>
   );
 };
 
-export default AdminPage;
+export default AdminForm;

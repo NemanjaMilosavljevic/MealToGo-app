@@ -17,7 +17,7 @@ const dummyMeals = [
   {
     title: "Pomfrit",
     image: "/images/anh-nguyen-kcA-c3f_3FE-unsplash.jpg",
-    description: "Pomfrit ",
+    description: "Pomfrit",
     price: 50,
     category: "side-dishes",
     subcategory: "",

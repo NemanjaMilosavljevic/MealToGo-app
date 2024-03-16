@@ -1,0 +1,5 @@
+.adminCard:hover {
+  background-color: blue !important;
+  cursor: pointer;
+  transform: scale(1.1);
+}

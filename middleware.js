@@ -6,7 +6,11 @@ export async function middleware(req) {
   const userEmail = (await getToken({ req }))?.email;
   const isAdmin = userEmail?.includes("@admin");
 
-  if (currentUser && req.nextUrl.pathname.startsWith("/login")) {
+  if (
+    currentUser &&
+    (req.nextUrl.pathname.startsWith("/login") ||
+      req.nextUrl.pathname === "/admin")
+  ) {
     return Response.redirect(new URL("/", req.url), 302);
   }
 

@@ -22,7 +22,8 @@
   transition: all 0.3s ease-in;
 }
 
-#body .logout {
+#body .logout,
+#body .admin {
   padding: 8px;
 }
 
