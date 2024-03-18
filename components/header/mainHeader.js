@@ -68,6 +68,13 @@ const MainHeader = ({ orders, totalPrice }) => {
     });
   }, [session]);
 
+  useEffect(() => {
+    if (!searchInput) {
+      return;
+    }
+    setSearchInput("");
+  }, [path]);
+
   return (
     <>
       {showPopup && <InfoPopup togglePopupInfo={togglePopupInfoHandler} />}
