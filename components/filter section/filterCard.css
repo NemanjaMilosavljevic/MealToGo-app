@@ -1,5 +1,6 @@
 #body .filterCard {
-  width: 15%;
+  position: fixed;
+  min-width: 9%;
   margin-top: 1rem;
   margin-left: 1rem;
 }

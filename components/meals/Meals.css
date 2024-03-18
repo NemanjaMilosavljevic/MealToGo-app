@@ -1,5 +1,5 @@
 #body .meal-cart-bg {
-  background-color: #404040;
+  background-color: #46434354;
   border-bottom-right-radius: var(--bs-card-border-radius);
   border-bottom-left-radius: var(--bs-card-border-radius);
 }
@@ -7,4 +7,52 @@
 #body .bg-meal-flag {
   background-color: #67cb18;
   color: white;
+}
+
+.card {
+  --bs-card-border-width: 0.5px;
+  --bs-card-border-color: white;
+  --bs-card-border-radius: 24px;
+  --bs-card-bg: transparent;
+}
+
+.border-green {
+  border-color: #67cb18;
+}
+
+.card-img-top {
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+}
+
+.mealTitle {
+  min-height: 70px;
+}
+
+.mealCardHeader {
+  border-bottom: 1px solid #67cb18;
+}
+
+.borderGreen {
+  border: 1px solid #67cb18;
+}
+
+.borderGreen:hover {
+  border: 1px solid #67cb18;
+}
+
+.btnGreen {
+  background-color: #67cb18;
+  color: white;
+  border-radius: 8px;
+  padding: 10px 28px;
+}
+
+.btnGreen:hover {
+  background-color: #66cb18c0;
+}
+
+.quantityBtn:hover {
+  background-color: #67cb18;
+  border-radius: 12px;
 }

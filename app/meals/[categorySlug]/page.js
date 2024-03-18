@@ -26,7 +26,7 @@ const CategoryMeals = ({ params, searchParams }) => {
   return (
     <div className="d-flex">
       <FilterCard />
-      <Meals meals={filteredMeals} />
+      <Meals meals={filteredMeals} searchModal={false} />
     </div>
   );
 };

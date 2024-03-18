@@ -7,12 +7,13 @@ import { usePathname } from "next/navigation";
 const MealCategoryFilter = () => {
   const path = usePathname();
   const categories = path.slice(1).split("/");
+
   return (
     <>
       {categories.length === 1 || categories[1] !== "main-dishes" ? (
-        <MealCategory />
+        <MealCategory categories={categories} />
       ) : (
-        <MealSubcategory />
+        <MealSubcategory categories={categories} />
       )}
     </>
   );

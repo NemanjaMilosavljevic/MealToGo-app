@@ -36,7 +36,7 @@ const Filter = ({ minPrice, maxPrice }) => {
   };
 
   return (
-    <div className="accordion mt-1 w-100" id="accordionPanelsStayOpenExample">
+    <div className="accordion" id="accordionPanelsStayOpenExample">
       <div className="accordion-item">
         <h2 className="accordion-header" id="panelsStayOpen-headingOne">
           <button
@@ -131,7 +131,7 @@ const Filter = ({ minPrice, maxPrice }) => {
                 type="range"
                 name="price"
                 id="price"
-                className="form-range rangeInput"
+                className="form-range"
                 min={minPrice}
                 max={maxPrice}
                 defaultValue={maxPrice}

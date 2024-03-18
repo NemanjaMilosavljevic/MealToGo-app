@@ -55,7 +55,7 @@ const QuantityPicker = ({ mealQuantity, id, togglePopupInfo }) => {
       <div className="d-flex gap-2">
         <button
           type="button"
-          className="btn btn-outline-success text-white"
+          className="btn text-white quantityBtn"
           onClick={decrementQuantity.bind(
             null,
             quantity === 1 ? 1 : quantity - 1,
@@ -64,12 +64,12 @@ const QuantityPicker = ({ mealQuantity, id, togglePopupInfo }) => {
         >
           -
         </button>
-        <div className="btn btn-outline-success rounded-3 text-white">
+        <div className="btn rounded-4 text-white borderGreen px-3">
           {quantity}
         </div>
         <button
           type="button"
-          className="btn btn-outline-success text-white"
+          className="btn text-white quantityBtn"
           onClick={incrementQuantity.bind(null, quantity + 1, id)}
         >
           +
@@ -77,10 +77,10 @@ const QuantityPicker = ({ mealQuantity, id, togglePopupInfo }) => {
       </div>
       <button
         type="button"
-        className="btn btn-success btn-sm"
+        className="btn btn-sm btnGreen"
         onClick={addMealToCart.bind(null, id)}
       >
-        ADD TO CART
+        Add to cart
       </button>
     </div>
   );

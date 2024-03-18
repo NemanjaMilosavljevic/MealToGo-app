@@ -1,0 +1,25 @@
+.breadItem {
+  color: white !important;
+  text-decoration: none;
+}
+
+.active {
+  color: #67cb18 !important;
+}
+
+#body .--bs-breadcrumb-divider::before {
+  content: ">";
+  color: white;
+}
+
+#body .breadCont {
+  background-color: #b3b3b333;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  border: 1px solid white;
+  margin-bottom: 2rem;
+}
+
+#body .breadCont ol {
+  padding: 12px 16px;
+}

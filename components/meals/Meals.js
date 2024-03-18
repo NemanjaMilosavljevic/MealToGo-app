@@ -6,21 +6,23 @@ import "./Meals.css";
 import QuantityPicker from "./quantityPicker";
 import InfoPopup from "../info/infoPopup";
 import useTogglePopup from "@/hooks/useTogglePopup";
+import Heading from "./heading";
 
-const Meals = ({ meals }) => {
+const Meals = ({ meals, searchModal }) => {
   const [showPopup, togglePopupInfoHandler] = useTogglePopup();
 
   return (
     <>
       {showPopup && <InfoPopup togglePopupInfo={togglePopupInfoHandler} />}
       <div className="container">
-        <div className="row row-cols-4 my-3">
+        <Heading hasMeals={meals.length > 0} searchModal={searchModal} />
+        <div className="row row-cols-4">
           {meals.map((meal) => {
             return (
-              <div className="mb-5" key={meal.id}>
+              <div className="mb-3" key={meal.id}>
                 <div className="card h-100">
                   <div className="position-relative">
-                    <ul className="position-absolute list-unstyled">
+                    <ul className="position-absolute list-unstyled mt-3">
                       <li
                         className={`bg-meal-flag my-2 px-3 fw-bold ${
                           meal.vegan ? "" : "d-none"
@@ -46,21 +48,21 @@ const Meals = ({ meals }) => {
                       className="card-img-top"
                       alt={meal.description}
                       width={300}
-                      height={300}
+                      height={220}
                     />
                   </div>
                   <div className="card-body meal-cart-bg text-light d-flex flex-column justify-content-between">
                     <div>
-                      <div className="d-flex justify-content-between border-bottom border-success gap-2">
-                        <div className="card-title fs-4 text-break">
+                      <div className="d-flex justify-content-between gap-2 mealCardHeader">
+                        <div className="card-title fs-4 text-break mealTitle">
                           {meal.title}
                         </div>
-                        <div className="card-title fw-bolder fs-3">
+                        <div className="card-title fw-bolder fs-4">
                           &#8364;{meal.price}
                         </div>
                       </div>
 
-                      <p className="card-text mt-3 ps-1">{meal.description}</p>
+                      <p className="card-text my-3 ps-1">{meal.description}</p>
                     </div>
 
                     <QuantityPicker

@@ -4,12 +4,7 @@ import { getFavoriteMeals } from "@/lib/db";
 const Favorites = () => {
   const favoriteMeals = getFavoriteMeals(1);
 
-  return (
-    <>
-      <h1>My Favorite Meals</h1>
-      <Meals meals={favoriteMeals} />
-    </>
-  );
+  return <Meals meals={favoriteMeals} />;
 };
 
 export default Favorites;

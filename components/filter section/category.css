@@ -1,0 +1,18 @@
+.list-group {
+  --bs-list-group-bg: #b3b3b333;
+  --bs-list-group-color: white;
+  --bs-list-group-border-radius: 8px;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.activeMeal {
+  color: #67cb18;
+  font-weight: 500;
+}
+
+.list-group-item-action:focus,
+.list-group-item-action:hover {
+  color: #67cb18;
+  background-color: #b3b3b333;
+}
