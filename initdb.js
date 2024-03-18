@@ -1,7 +1,7 @@
 const sql = require("better-sqlite3");
 const db = sql("meals.db");
 
-const dummyMeals = [
+/* const dummyMeals = [
   {
     title: "Cevap",
     image: "/images/anh-nguyen-kcA-c3f_3FE-unsplash.jpg",
@@ -86,7 +86,7 @@ const dummyMeals = [
     favorite: 0,
     quantity: 1,
   },
-];
+]; */
 
 db.prepare(
   `CREATE TABLE IF NOT EXISTS meals (
@@ -129,7 +129,7 @@ db.prepare(
 )`
 ).run();
 
-async function initData() {
+/* async function initData() {
   const stmt = db.prepare(`
     INSERT INTO meals VALUES (
       null,
@@ -151,4 +151,4 @@ async function initData() {
   }
 }
 
-initData();
+initData(); */
