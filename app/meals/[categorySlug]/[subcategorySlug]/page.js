@@ -24,7 +24,7 @@ const SubcategoryMeals = ({ params, searchParams }) => {
     );
   }
   return (
-    <div className="d-flex">
+    <div className="d-flex mt-5">
       <FilterCard />
       <Meals meals={filteredMeals} searchModal={false} />
     </div>

@@ -12,6 +12,8 @@ const Heading = ({ hasMeals, searchModal }) => {
             ? "Add meal to your cart"
             : path.startsWith("/favorites") && !searchModal
             ? "Your favorite meals"
+            : searchModal
+            ? "Search results:"
             : ""}
         </h1>
       )}

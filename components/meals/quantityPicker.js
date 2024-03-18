@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { updateMealQuantity, saveMealInCart } from "@/lib/actions";
 import { noSession } from "@/lib/actions";
+import "./Meals.css";
 
 const QuantityPicker = ({ mealQuantity, id, togglePopupInfo }) => {
   const [quantity, setQuantity] = useState(mealQuantity);

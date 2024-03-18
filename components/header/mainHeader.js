@@ -72,27 +72,32 @@ const MainHeader = ({ orders, totalPrice }) => {
     <>
       {showPopup && <InfoPopup togglePopupInfo={togglePopupInfoHandler} />}
       {searchInput && <SearchMeals searchedMeals={searchedMeals} />}
-      <div className="position-relative">
-        <header className="d-flex bg-light bg-opacity-25 container-fluid justify-content-between headerIndex">
-          <Link href="/" className="m-3 ps-5">
-            <Image src={logoImage} alt="logo image" width={70} height={70} />
+      <div className="position-relative text-white">
+        <header className="d-flex container-fluid justify-content-between headerContainer">
+          <Link href="/" className="mt-1 ps-5">
+            <Image
+              src={logoImage}
+              alt="Meal to go logo image"
+              width={45}
+              height={45}
+            />
           </Link>
 
-          <nav className="navbar navbar-expand-lg navbar-light ms-5">
-            <div className="container-fluid">
+          <nav className="navbar navbar-expand-lg ms-5">
+            <div className="container-fluid text-white">
               <div className="collapse navbar-collapse">
                 <ul className="navbar-nav me-5 mb-2 mb-lg-0 ">
-                  <li className="nav-item mx-5">
-                    <NavLink href="/meals">MENU</NavLink>
+                  <li className="nav-item mx-3">
+                    <NavLink href="/meals">Menu</NavLink>
                   </li>
                   {session && (
-                    <li className="nav-item mx-5">
-                      <NavLink href="/order">ORDER</NavLink>
+                    <li className="nav-item mx-3">
+                      <NavLink href="/order">Order</NavLink>
                     </li>
                   )}
                   {session && (
-                    <li className="nav-item mx-5">
-                      <NavLink href="/favorites">FAVORITES</NavLink>
+                    <li className="nav-item mx-3">
+                      <NavLink href="/favorites">Favorites</NavLink>
                     </li>
                   )}
 
@@ -103,15 +108,15 @@ const MainHeader = ({ orders, totalPrice }) => {
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
                       >
-                        ADMIN
+                        Admin
                       </span>
-                      <ul className="dropdown-menu dropdown-menu-dark">
+                      <ul className="dropdown-menu">
                         <li>
                           <NavLink
                             className="dropdown-item"
                             href="/admin/create-meal"
                           >
-                            CREATE MEAL
+                            Create meal
                           </NavLink>
                         </li>
                         <li>
@@ -119,7 +124,7 @@ const MainHeader = ({ orders, totalPrice }) => {
                             className="dropdown-item"
                             href="/admin/dashboard"
                           >
-                            EDIT
+                            Edit
                           </NavLink>
                         </li>
                       </ul>
@@ -127,23 +132,23 @@ const MainHeader = ({ orders, totalPrice }) => {
                   )}
 
                   {!session && (
-                    <li className="nav-item mx-5">
-                      <NavLink href="/login">LOGIN</NavLink>
+                    <li className="nav-item mx-3">
+                      <NavLink href="/login">Login</NavLink>
                     </li>
                   )}
 
                   {session && (
                     <li
-                      className="nav-item mx-5 logout"
+                      className="nav-item mx-3 logout"
                       onClick={logoutHandler}
                     >
-                      LOGOUT
+                      Logout
                     </li>
                   )}
                 </ul>
-                <div className="input-group ">
+                <div className="input-group">
                   <input
-                    className="form-control opacity-50"
+                    className="form-control"
                     type="search"
                     placeholder="Search"
                     aria-label="Search"
@@ -156,14 +161,14 @@ const MainHeader = ({ orders, totalPrice }) => {
                 <div className="collapse navbar-collapse">
                   <Image
                     src={cartImage}
-                    alt="cart icon"
-                    width={35}
-                    height={35}
-                    className="align-self-center opacity-50 ms-5 myCart"
+                    alt="Meal cart icon"
+                    width={25}
+                    height={25}
+                    className="align-self-center ms-2 mt-2 myCart"
                     onClick={toggleCart}
                   />
                   <span
-                    className={`translate-middle badge rounded-pill customBadge ${
+                    className={`translate-middle badge rounded-pill customBadge mt-1 ${
                       orders.length === 0 ? "bg-empty" : "bg-danger"
                     }`}
                   >

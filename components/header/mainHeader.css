@@ -2,32 +2,60 @@
   cursor: pointer;
 }
 
-#body .headerIndex {
-  z-index: 5;
+#body .headerContainer {
+  background-color: #000;
+  z-index: 101;
+  position: fixed;
+  top: 0;
+  color: white;
 }
 
 #body .customBadge {
   position: absolute;
   right: 0;
-  top: 30%;
+  top: 20%;
 }
 
 #body .bg-empty {
-  background-color: #686868;
+  background-color: white;
   color: black;
   transition: all 0.3s ease-out;
 }
 
-#body .bg-danger {
+.bg-danger {
   transition: all 0.3s ease-in;
 }
 
-#body .logout,
-#body .admin {
+.logout,
+.admin {
   padding: 8px;
 }
 
-#body .logout:hover {
-  color: #257c33;
-  font-weight: bold;
+.logout:hover,
+.admin:hover {
+  cursor: pointer;
+}
+
+header .navbar-nav {
+  --bs-nav-link-color: white;
+  --bs-nav-link-hover-color: white;
+}
+
+.dropdown-menu.show {
+  --bs-dropdown-bg: #3b3b3b;
+  padding: 0;
+  border: 0.5px solid white;
+}
+
+.dropdown-menu.show li:first-child {
+  border-bottom: 0.5px solid white;
+}
+
+.dropdown-menu.show li:hover {
+  background-color: #8383836e;
+}
+
+.input-group .form-control:focus {
+  border-color: transparent;
+  box-shadow: 0 0 0 0.25rem hsla(94, 79%, 45%, 0.25);
 }
