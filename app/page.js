@@ -1,7 +1,5 @@
-import { getUsers } from "@/lib/db";
+import Home from "@/components/home/home";
 
-export default function Home() {
-  const users = getUsers();
-  console.log(users);
-  return <div className="text-success text-center my-5">HOME PAGE</div>;
+export default function Page() {
+  return <Home />;
 }
