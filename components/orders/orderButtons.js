@@ -1,31 +1,39 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { clearOrdersFromCard } from "@/lib/actions";
+import "./orderButtons.css";
 
 const OrderButtons = ({ orderedMeals }) => {
-  const clearOrderHandler = () => {
-    clearOrdersFromCard();
+  const router = useRouter();
+  const redirectToMeals = () => {
+    router.replace("/meals");
   };
+
   const paymentHandler = () => {
     if (orderedMeals.length === 0) {
       alert(
-        "Nema itema u korpi!! Prvo morate dodati neki item da biste mogli platiti"
+        "There are no items in the cart! You must first add an item to be able to pay!"
       );
       return;
     }
-    alert("USPESNO OBAVLJENA KUPOVINA");
+    alert("You successfully completed purchase!");
     clearOrdersFromCard();
   };
+
   return (
-    <div>
+    <div className="d-flex justify-content-end me-5 mb-5">
       <button
-        className="btn btn-danger btn-lg me-5"
-        onClick={clearOrderHandler}
+        className="btn border-white text-white me-3 addmeals-button"
+        onClick={redirectToMeals}
       >
-        CLEAR ORDERS
+        Add more meals
       </button>
-      <button className="btn btn-success btn-lg mx-5" onClick={paymentHandler}>
-        PAY ORDER
+      <button
+        className="btn text-white border-0 payment-button"
+        onClick={paymentHandler}
+      >
+        Go to payment
       </button>
     </div>
   );

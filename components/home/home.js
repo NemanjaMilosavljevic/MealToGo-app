@@ -16,7 +16,6 @@ const Home = () => {
           <h1>MEAL TO GO</h1>
           <p>delicious food on your</p>
           <p>address within minutes!</p>
-
           <OrderButton />
         </div>
       </div>

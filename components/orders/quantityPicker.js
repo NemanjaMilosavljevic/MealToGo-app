@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { updateMealQuantityInCard } from "@/lib/actions";
+import "./quantityPicker.css";
 
 const QuantityPicker = ({ mealQuantity, id }) => {
   const [quantity, setQuantity] = useState(mealQuantity);
@@ -23,23 +24,18 @@ const QuantityPicker = ({ mealQuantity, id }) => {
     updateMealQuantityInCard(q, id);
   };
   return (
-    <div className="d-flex gap-3">
+    <div className="d-flex quantity-wrapper">
       <button
-        type="button"
-        className="btn btn-outline-success text-white btn-lg"
+        className="btn text-white action-button"
         onClick={decrementQuantity.bind(null, quantity - 1, id)}
       >
         -
       </button>
-      <button
-        type="button"
-        className="btn btn-outline-success rounded-3 text-white btn-lg"
-      >
+      <button className="btn rounded-3 text-white quantity-button">
         {quantity}
       </button>
       <button
-        type="button"
-        className="btn btn-outline-success text-white btn-lg"
+        className="btn text-white action-button"
         onClick={incrementQuantity.bind(null, quantity + 1, id)}
       >
         +

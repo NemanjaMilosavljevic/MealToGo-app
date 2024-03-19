@@ -1,0 +1,14 @@
+#body .payment-button {
+  background-color: #67cb18;
+  padding-inline: 16px;
+}
+
+#body .payment-button:hover {
+  background-color: #66cb18c0;
+  transform: scale(1.05);
+}
+
+#body .addmeals-button:hover {
+  background-color: rgba(104, 104, 104, 0.2);
+  transform: scale(1.05);
+}

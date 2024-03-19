@@ -1,11 +1,27 @@
 #body .orderCart {
-  position: absolute;
+  position: fixed;
   min-width: 15vw;
   min-height: 10vw;
-  top: 80%;
+  top: 56px;
   right: 0.5%;
   z-index: 100;
   border-radius: 10px;
-  padding: 10px;
-  transition: all 0.3s ease-in;
+  padding: 12px;
+  background-color: #000;
+  border: 0.5px solid white;
+}
+
+#body .order-button {
+  background-color: #67cb18;
+  color: white;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+#body .order-button:hover {
+  background-color: #66cb18c0;
+}
+
+.meal-title-card {
+  font-size: 0.75rem;
 }

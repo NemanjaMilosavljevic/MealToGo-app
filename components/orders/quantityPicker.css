@@ -1,0 +1,14 @@
+#body .quantity-button {
+  border: 1px solid #67cb18;
+  font-size: 0.65rem;
+  padding: 0 8px;
+  margin-inline: 4px;
+}
+
+#body .action-button:hover {
+  background-color: #67cb18;
+}
+
+.quantity-wrapper .btn {
+  --bs-btn-padding-y: 0;
+}
