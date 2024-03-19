@@ -1,8 +1,8 @@
-#body .myCart:hover {
+.myCart:hover {
   cursor: pointer;
 }
 
-#body .headerContainer {
+.headerContainer {
   background-color: #000;
   z-index: 101;
   position: fixed;
@@ -10,7 +10,11 @@
   color: white;
 }
 
-#body .customBadge {
+.headerContainer li:hover {
+  color: #67cb18;
+}
+
+.customBadge {
   position: absolute;
   right: 0;
   top: 20%;
@@ -38,7 +42,7 @@
 
 header .navbar-nav {
   --bs-nav-link-color: white;
-  --bs-nav-link-hover-color: white;
+  --bs-nav-link-hover-color: #67cb18;
 }
 
 .dropdown-menu.show {
