@@ -4,8 +4,8 @@ import "./mainHeader.css";
 import Link from "next/link";
 import NavLink from "./navLink";
 import Image from "next/image";
-import logoImage from "@/assets/images/icon.png";
-import cartImage from "@/assets/images/cart-icon.svg";
+import logoImage from "@/public/images/icon.png";
+import cartImage from "@/public/images/cart-icon.svg";
 import Cart from "./cart";
 import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
@@ -30,7 +30,7 @@ const MainHeader = ({ orders, totalPrice }) => {
   const [role, setRole] = useState();
   const [session] = useClientSession(path);
 
-  //toggle info popup
+  //toggle info
   const [showPopup, togglePopupInfoHandler] = useTogglePopup();
 
   const toggleCart = () => {
@@ -68,11 +68,20 @@ const MainHeader = ({ orders, totalPrice }) => {
     });
   }, [session]);
 
+  //reset search input if change route
   useEffect(() => {
     if (!searchInput) {
       return;
     }
     setSearchInput("");
+  }, [path]);
+
+  // close cart if its open and user go to other route
+  useEffect(() => {
+    if (!cartIsVisible) {
+      return;
+    }
+    setCartIsVisible(false);
   }, [path]);
 
   return (
