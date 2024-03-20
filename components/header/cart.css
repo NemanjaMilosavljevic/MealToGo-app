@@ -1,7 +1,7 @@
 #body .orderCart {
   position: fixed;
   min-width: 15vw;
-  min-height: 10vw;
+  max-height: 20vw;
   top: 56px;
   right: 0.5%;
   z-index: 100;
@@ -9,6 +9,23 @@
   padding: 12px;
   background-color: #000;
   border: 0.5px solid white;
+  overflow-y: scroll;
+}
+
+#body .orderCart::-webkit-scrollbar {
+  width: 0.35vw;
+}
+
+#body .orderCart::-webkit-scrollbar-thumb {
+  background-color: #67cb18;
+  background-clip: content-box;
+  border-radius: 20px;
+}
+
+#body .orderCart::-webkit-scrollbar-track {
+  background-color: #35353571;
+  margin-block: 2rem;
+  border-radius: 20px;
 }
 
 #body .order-button {
