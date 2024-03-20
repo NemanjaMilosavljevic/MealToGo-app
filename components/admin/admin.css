@@ -3,3 +3,37 @@
   cursor: pointer;
   transform: scale(1.1);
 }
+
+.admin-form {
+  margin-top: 70px;
+  color: white;
+  background-color: #46434354;
+  border-radius: 24px;
+  padding: 30px 100px;
+}
+
+.admin-form .form-control:focus {
+  border-color: transparent;
+  box-shadow: 0 0 0 0.25rem #66cb1846;
+}
+
+.admin-form .form-select:focus {
+  border-color: transparent;
+  box-shadow: 0 0 0 0.25rem #66cb1846;
+}
+
+.button-pending {
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+}
+
+.button-admin {
+  background-color: #67cb18;
+  color: white;
+  font-weight: 500;
+}
+
+.button-admin:hover {
+  background-color: #66cb18c0;
+}

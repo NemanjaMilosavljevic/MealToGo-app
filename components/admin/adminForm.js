@@ -3,12 +3,14 @@
 import { createMeal } from "@/lib/actions";
 import { useFormState } from "react-dom";
 import AdminFormButton from "./adminFormButton";
+import "./admin.css";
 
 const AdminForm = () => {
   const [state, formAction] = useFormState(createMeal, { errorMessage: null });
 
   return (
-    <div className="container-fluid w-50 my-3">
+    <div className="container-fluid w-50 admin-form">
+      <h1 className="text-center mb-5">Add new meal</h1>
       <form className="row g-3" action={formAction}>
         <div className="col-md-6">
           <label htmlFor="title" className="form-label">
@@ -19,6 +21,7 @@ const AdminForm = () => {
             className="form-control"
             id="title"
             name="title"
+            placeholder="Meal title"
             required
           />
         </div>
@@ -32,6 +35,7 @@ const AdminForm = () => {
             className="form-control"
             id="price"
             name="price"
+            placeholder="Meal price"
             required
           />
         </div>
@@ -45,6 +49,7 @@ const AdminForm = () => {
             id="description"
             rows="3"
             name="description"
+            placeholder="Meal description"
             required
           ></textarea>
         </div>
@@ -59,9 +64,7 @@ const AdminForm = () => {
             name="category"
             required
           >
-            <option selected disabled aria-readonly>
-              Category
-            </option>
+            <option value="">Category</option>
             <option value="breakfast">Breakfast</option>
             <option value="main-dishes">Main dish</option>
             <option value="salads">Salads</option>
@@ -75,9 +78,7 @@ const AdminForm = () => {
             Subcategory
           </label>
           <select id="subcategory" className="form-select" name="subcategory">
-            <option selected disabled aria-readonly>
-              Subcategory
-            </option>
+            <option value="">Subcategory</option>
             <option value="barbeque">Barbeque</option>
             <option value="pasta">Pasta</option>
             <option value="pizza">Pizza</option>
@@ -122,7 +123,7 @@ const AdminForm = () => {
           />
         </div>
 
-        <div className="col-12 d-flex">
+        <div className="d-flex justify-content-end">
           <AdminFormButton />
           {state.errorMessage && (
             <p className="ms-5 mt-2 text-danger">{state.errorMessage}</p>
