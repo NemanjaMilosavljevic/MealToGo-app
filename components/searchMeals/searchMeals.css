@@ -4,7 +4,23 @@
   top: 56px;
   z-index: 100;
   background-color: #222;
-  overflow: scroll;
+  overflow-y: scroll;
   scroll-behavior: smooth;
   padding-bottom: 4rem;
+}
+
+.searchModal::-webkit-scrollbar {
+  width: 0.5vw;
+}
+
+.searchModal::-webkit-scrollbar-thumb {
+  background-color: #67cb18;
+  background-clip: content-box;
+  border-radius: 20px;
+}
+
+.searchModal::-webkit-scrollbar-track {
+  background-color: #35353571;
+  margin-block: 8rem;
+  border-radius: 20px;
 }

@@ -54,8 +54,12 @@ const MainHeader = ({ orders, totalPrice }) => {
 
   useEffect(() => {
     if (!searchInput) {
+      document.body.classList.remove("body-no-overflow");
       return;
     }
+
+    //remove scrollbar from body whene search modal is active
+    document.body.classList.add("body-no-overflow");
 
     searchMealsPerTitle(`%${searchInput}%`).then((res) =>
       setSearchedMeals(res)
