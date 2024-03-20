@@ -6,8 +6,8 @@ import { createUser } from "@/lib/auth";
 import { useRouter } from "next/navigation";
 import "./signup.css";
 
-const Signup = () => {
-  const [isLogin, setIsLogin] = useState(false);
+const Signup = ({ status }) => {
+  const [isLogin, setIsLogin] = useState(status === "register" ? false : true);
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredPassword, setEnteredPassword] = useState("");
 
@@ -15,6 +15,11 @@ const Signup = () => {
 
   const changeModeHandler = () => {
     setIsLogin((prevState) => !prevState);
+    if (isLogin) {
+      router.push("/register");
+    } else {
+      router.push("/login");
+    }
   };
 
   const emailHandler = (e) => {
@@ -65,7 +70,7 @@ const Signup = () => {
   return (
     <form className="container text-white form-login" onSubmit={loginHandler}>
       <h1 className="mb-3">{isLogin ? "Login" : "Sign up"}</h1>
-      {!isLogin && <h4 className="mb-5">Create new account</h4>}
+      {!isLogin && <h5 className="mb-5">Register new account</h5>}
 
       <div className="row mb-3">
         <label htmlFor="email" className="col-3 col-form-label">

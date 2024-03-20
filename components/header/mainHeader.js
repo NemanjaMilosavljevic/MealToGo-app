@@ -52,6 +52,10 @@ const MainHeader = ({ orders, totalPrice }) => {
     router.push(data.url);
   };
 
+  const registerHandler = async () => {
+    router.push("/register");
+  };
+
   useEffect(() => {
     if (!searchInput) {
       document.body.classList.remove("body-no-overflow");
@@ -153,7 +157,7 @@ const MainHeader = ({ orders, totalPrice }) => {
 
                   {!session && (
                     <li className="nav-item mx-3">
-                      <NavLink href="/login">Login</NavLink>
+                      <NavLink href="/login">Log in</NavLink>
                     </li>
                   )}
 
@@ -162,7 +166,12 @@ const MainHeader = ({ orders, totalPrice }) => {
                       className="nav-item mx-3 logout"
                       onClick={logoutHandler}
                     >
-                      Logout
+                      Log out
+                    </li>
+                  )}
+                  {!session && (
+                    <li className="nav-item mx-3" onClick={registerHandler}>
+                      <button className="btn register-btn">Register</button>
                     </li>
                   )}
                 </ul>
