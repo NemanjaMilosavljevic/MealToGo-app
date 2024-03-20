@@ -1,0 +1,33 @@
+.form-login {
+  background-color: #46434354;
+  border-radius: 24px;
+  margin-top: 5rem;
+  text-align: center;
+  padding-inline: 22.5%;
+  padding-block: 5rem;
+}
+
+.form-login button {
+  background-color: #67cb18;
+  color: white;
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
+.form-login button:hover {
+  background-color: #66cb18c0;
+}
+
+.form-login span {
+  color: #67cb18;
+  cursor: pointer;
+}
+
+.form-login span:hover {
+  text-decoration: underline;
+}
+
+.form-login input:focus {
+  border-color: transparent;
+  box-shadow: 0 0 0 0.25rem #66cb1846;
+}

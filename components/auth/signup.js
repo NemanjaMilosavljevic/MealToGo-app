@@ -4,6 +4,7 @@ import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { createUser } from "@/lib/auth";
 import { useRouter } from "next/navigation";
+import "./signup.css";
 
 const Signup = () => {
   const [isLogin, setIsLogin] = useState(false);
@@ -62,16 +63,15 @@ const Signup = () => {
   };
 
   return (
-    <form
-      className="container m-auto mt-5 bg-danger p-5"
-      onSubmit={loginHandler}
-    >
-      <h1>{isLogin ? "Login" : "Sign up"}</h1>
+    <form className="container text-white form-login" onSubmit={loginHandler}>
+      <h1 className="mb-3">{isLogin ? "Login" : "Sign up"}</h1>
+      {!isLogin && <h4 className="mb-5">Create new account</h4>}
+
       <div className="row mb-3">
-        <label htmlFor="email" className="col-2 col-form-label">
+        <label htmlFor="email" className="col-3 col-form-label">
           Email
         </label>
-        <div className="col-4">
+        <div className="col-9">
           <input
             type="email"
             className="form-control"
@@ -82,11 +82,12 @@ const Signup = () => {
           />
         </div>
       </div>
+
       <div className="row mb-3">
-        <label htmlFor="password" className="col-2 col-form-label">
+        <label htmlFor="password" className="col-3 col-form-label">
           Password
         </label>
-        <div className="col-4">
+        <div className="col-9">
           <input
             type="password"
             className="form-control"
@@ -98,13 +99,13 @@ const Signup = () => {
         </div>
       </div>
 
-      <button type="submit" className="btn btn-success">
+      <button type="submit" className="btn mb-3">
         {isLogin ? "Login" : "Sign up"}
       </button>
 
       <p>
         {!isLogin ? "Already have account?" : "Create new account?"}
-        <span onClick={changeModeHandler} className="text-info ms-2">
+        <span onClick={changeModeHandler} className="ms-2">
           {!isLogin ? "Login" : "Sign up"}
         </span>
       </p>
