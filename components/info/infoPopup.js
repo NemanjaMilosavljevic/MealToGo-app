@@ -8,11 +8,11 @@ const InfoPopup = ({ togglePopupInfo }) => {
   return (
     <div className="popInfo">
       <div className="toast-body">
-        This action is not allowed for unauthorized users! Please login first!
+        You need to be logged in first if you want to do this action!
         <div className="mt-2 pt-2 border-top">
           <button
             type="button"
-            className="btn btn-secondary btn-sm"
+            className="btn btn-success btn-sm my-2"
             onClick={hidePopupHandler}
           >
             Close
