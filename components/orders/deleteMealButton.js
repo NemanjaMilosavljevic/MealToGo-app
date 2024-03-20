@@ -14,7 +14,7 @@ const DeleteMealButton = ({ id }) => {
       viewBox="0 0 384 512"
       onClick={deleteMealFromCard}
       className="delete-icon"
-      height={12}
+      height={14}
     >
       <path
         fill="#fff"

@@ -19,6 +19,7 @@ const OrderButtons = ({ orderedMeals }) => {
     }
     alert("You successfully completed purchase!");
     clearOrdersFromCard();
+    router.push("/meals");
   };
 
   return (

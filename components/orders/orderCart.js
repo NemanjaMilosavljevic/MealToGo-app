@@ -4,7 +4,7 @@ import "./orderCard.css";
 
 const OrderCart = ({ orderedMeals }) => {
   return (
-    <table class="table table-orders">
+    <table className="table table-orders">
       <thead>
         <tr>
           <th scope="col" style={{ width: "10%" }}>
@@ -27,15 +27,15 @@ const OrderCart = ({ orderedMeals }) => {
       <tbody className="align-middle">
         {orderedMeals.map((meal) => {
           return (
-            <tr key={meal.id}>
-              <th scope="row">{meal.id}</th>
+            <tr key={meal.id} style={{ height: "100px" }}>
+              <td scope="row">{meal.id}</td>
               <td>{meal.title}</td>
               <td>&#8364;{meal.price}</td>
               <td>
                 <QuantityPicker mealQuantity={meal.quantity} id={meal.id} />
               </td>
               <td>
-                <div className="d-flex gap-2">
+                <div className="d-flex gap-5">
                   <div className="fs-5">
                     &#8364;{meal.price * meal.quantity}
                   </div>
