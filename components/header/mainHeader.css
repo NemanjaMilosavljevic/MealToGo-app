@@ -68,6 +68,7 @@ header .navbar-nav {
   background-color: #67cb18;
   color: white;
   font-weight: 500;
+  padding: 6px 8px;
 }
 
 #body .register-btn:hover {
@@ -76,4 +77,12 @@ header .navbar-nav {
 
 .headerContainer li {
   white-space: nowrap;
+}
+
+.search-icon {
+  margin-top: 10px;
+}
+
+.search-icon:hover {
+  cursor: pointer;
 }

@@ -34,6 +34,9 @@ const Signup = ({ status }) => {
     e.preventDefault();
 
     //client side validation
+    /*   if (!enteredEmail || !enteredPassword) {
+      return;
+    } */
 
     if (isLogin) {
       // log user in
