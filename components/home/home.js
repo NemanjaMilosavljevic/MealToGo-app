@@ -1,7 +1,7 @@
 import "./home.css";
 import Image from "next/image";
 import Link from "next/link";
-import logoImage from "@/assets/images/icon.png";
+import logoImage from "@/public/images/icon.png";
 import twitterLogo from "@/public/images/twitter.svg";
 import linkedinLogo from "@/public/images/linkedin.svg";
 import faceLogo from "@/public/images/face.svg";
