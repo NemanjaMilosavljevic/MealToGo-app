@@ -23,11 +23,16 @@ const QuantityPicker = ({ mealQuantity, id }) => {
     });
     updateMealQuantityInCard(q, id);
   };
+
   return (
     <div className="d-flex quantity-wrapper">
       <button
         className="btn text-white action-button"
-        onClick={decrementQuantity.bind(null, quantity - 1, id)}
+        onClick={decrementQuantity.bind(
+          null,
+          quantity === 1 ? 1 : quantity - 1,
+          id
+        )}
       >
         -
       </button>

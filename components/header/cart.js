@@ -19,11 +19,8 @@ const Cart = ({ toggleCart, orderedMeals, totalPrice }) => {
       <ul className="list-unstyled m-0">
         {orderedMeals.map((meal) => {
           return (
-            <>
-              <li
-                className="d-flex gap-4 justify-content-between align-items-center mb-2"
-                key={meal.id}
-              >
+            <div key={meal.id}>
+              <li className="d-flex gap-4 justify-content-between align-items-center mb-2">
                 <div className="d-flex flex-column gap-2">
                   <h6 className="m-0 fw-light meal-title-card">{meal.title}</h6>
                   <QuantityPicker mealQuantity={meal.quantity} id={meal.id} />
@@ -36,7 +33,7 @@ const Cart = ({ toggleCart, orderedMeals, totalPrice }) => {
                 </div>
               </li>
               <hr />
-            </>
+            </div>
           );
         })}
       </ul>
