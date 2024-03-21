@@ -4,6 +4,9 @@ import { deleteUserFromDB } from "@/lib/actions";
 
 const DeleteUserButton = ({ id }) => {
   const deleteUser = () => {
+    if (!window.confirm("Are you sure you want to delete this meal?")) {
+      return;
+    }
     deleteUserFromDB(id);
   };
 
@@ -14,6 +17,7 @@ const DeleteUserButton = ({ id }) => {
       onClick={deleteUser}
       className="delete-icon"
       height={20}
+      style={{ marginLeft: "40px" }}
     >
       <path
         fill="#fff"

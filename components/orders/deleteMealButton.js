@@ -24,6 +24,7 @@ const DeleteMealButton = ({ id, isAdmin }) => {
       onClick={deleteMeal}
       className="delete-icon"
       height={!isAdmin ? 14 : 20}
+      style={{ marginLeft: isAdmin ? "40px" : "" }}
     >
       <path
         fill="#fff"

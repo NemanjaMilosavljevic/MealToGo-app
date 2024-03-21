@@ -2,8 +2,12 @@
 
 import "./admin.css";
 import DeleteUserButton from "./deleteUserButton";
+import { updateUserToAdmin } from "@/lib/actions";
 
 const DashboardUsers = ({ users }) => {
+  const setUserAsAdmin = (id, e) => {
+    updateUserToAdmin(e.target.checked === true ? "admin" : "viewer", id);
+  };
   return (
     <table className="table table-orders">
       <thead>
@@ -31,14 +35,14 @@ const DashboardUsers = ({ users }) => {
               <td>{user.email}</td>
 
               <td>
-                <div className="form-check">
+                <div className="form-check ms-5">
                   <input
                     className="form-check-input"
                     type="checkbox"
                     id="role"
                     name="role"
                     checked={user.role === "admin" ? true : false}
-                    /*   onChange={setMealOnsale.bind(null, user.id)} */
+                    onChange={setUserAsAdmin.bind(null, user.id)}
                   />
                 </div>
               </td>

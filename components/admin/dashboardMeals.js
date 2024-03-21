@@ -56,7 +56,7 @@ const DashboardMeals = ({ meals }) => {
               <td scope="row">{meal.id}</td>
               <td>{meal.title}</td>
               <td>
-                <div className="form-check">
+                <div className="form-check ms-3">
                   <input
                     className="form-check-input"
                     type="checkbox"
