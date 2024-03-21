@@ -1,12 +1,15 @@
-import Users from "@/components/admin/users";
-import Meals from "@/components/admin/meals";
+import DashboardUsersLink from "@/components/admin/dashboardUsersLink";
+import DashboardMealsLink from "@/components/admin/dashboardMealsLink";
 import "../../globals.css";
 
 const Page = () => {
   return (
-    <div className="container-fluid d-flex w-50 justify-content-evenly wrapper">
-      <Users />
-      <Meals />
+    <div className="wrapper container-fluid">
+      <h1 className="text-white text-center">Admin panel</h1>
+      <div className="d-flex justify-content-center gap-5">
+        <DashboardUsersLink />
+        <DashboardMealsLink />
+      </div>
     </div>
   );
 };

@@ -1,7 +1,15 @@
+.adminCard {
+  background-color: #4d4d4d94;
+  border: 0.5px solid white;
+  border-radius: 24px;
+  margin-top: 50%;
+  padding: 100px;
+}
+
 .adminCard:hover {
-  background-color: blue !important;
   cursor: pointer;
-  transform: scale(1.1);
+  transform: scale(1.02);
+  background-color: #287c37;
 }
 
 .admin-form {
@@ -22,6 +30,16 @@
   box-shadow: 0 0 0 0.25rem #66cb1846;
 }
 
+.form-check-input:focus {
+  border-color: #67cb18;
+  box-shadow: 0 0 0 0.25rem #66cb1833;
+}
+
+.form-check-input:checked {
+  background-color: #67cb18;
+  border-color: #67cb18;
+}
+
 .button-pending {
   background-color: transparent;
   border: 1px solid white;
@@ -35,5 +53,22 @@
 }
 
 .button-admin:hover {
+  background-color: #66cb18c0;
+}
+
+.table {
+  --bs-table-bg: #00000094;
+  --bs-table-color: white;
+  border-color: #b3b3b3;
+}
+
+.edit-button {
+  background-color: #67cb18;
+  color: white;
+  font-weight: 500;
+  padding: 10px 30px;
+}
+
+.edit-button:hover {
   background-color: #66cb18c0;
 }
