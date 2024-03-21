@@ -3,8 +3,7 @@ import { getToken } from "next-auth/jwt";
 export async function middleware(req) {
   const currentUser = req.cookies.get("next-auth.session-token")?.value;
 
-  const userEmail = (await getToken({ req }))?.email;
-  const isAdmin = userEmail?.includes("@admin");
+  const role = (await getToken({ req }))?.name;
 
   if (
     currentUser &&
@@ -22,7 +21,7 @@ export async function middleware(req) {
     return Response.redirect(new URL("/login", req.url), 302);
   }
 
-  if (!isAdmin && req.nextUrl.pathname.startsWith("/admin")) {
+  if (!role && req.nextUrl.pathname.startsWith("/admin")) {
     return Response.redirect(new URL("/", req.url), 302);
   }
 }

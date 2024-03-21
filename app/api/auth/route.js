@@ -4,6 +4,8 @@ import { getUser } from "@/lib/db";
 const sql = require("better-sqlite3");
 const db = sql("meals.db");
 
+// main admin: {email: admin@admin.com, pasword: adminadmin}
+
 export async function POST(req, res) {
   //data validation
   const data = await req.json();

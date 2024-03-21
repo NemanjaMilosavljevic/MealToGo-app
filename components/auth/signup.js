@@ -45,7 +45,7 @@ const Signup = ({ status }) => {
         redirect: false,
         email: enteredEmail,
         password: enteredPassword,
-        role: enteredEmail.includes("@admin") ? "admin" : "viewer",
+        role: "viewer",
       });
 
       if (!result.error) {
@@ -56,11 +56,7 @@ const Signup = ({ status }) => {
     } else {
       //create new user
       try {
-        await createUser(
-          enteredEmail,
-          enteredPassword,
-          enteredEmail.includes("@admin") ? "admin" : "viewer"
-        );
+        await createUser(enteredEmail, enteredPassword, "viewer");
       } catch (err) {
         console.log(err);
       }
