@@ -1,20 +1,29 @@
 "use client";
 
-import { deleteMeal } from "@/lib/actions";
+import { deleteMealFromCard, deleteMealFromDB } from "@/lib/actions";
+
 import "./deleteIcon.css";
 
-const DeleteMealButton = ({ id }) => {
-  const deleteMealFromCard = () => {
-    deleteMeal(id);
+const DeleteMealButton = ({ id, isAdmin }) => {
+  const deleteMeal = () => {
+    if (!window.confirm("Are you sure you want to delete this meal?")) {
+      return;
+    }
+    if (isAdmin) {
+      deleteMealFromDB(id);
+      return;
+    }
+
+    deleteMealFromCard(id);
   };
 
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 384 512"
-      onClick={deleteMealFromCard}
+      onClick={deleteMeal}
       className="delete-icon"
-      height={14}
+      height={!isAdmin ? 14 : 20}
     >
       <path
         fill="#fff"

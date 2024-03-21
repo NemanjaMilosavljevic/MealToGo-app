@@ -1,17 +1,69 @@
 "use client";
 
-import { createMeal } from "@/lib/actions";
+import { createMeal, editMeal } from "@/lib/actions";
 import { useFormState } from "react-dom";
 import AdminFormButton from "./adminFormButton";
+import { useState } from "react";
 import "./admin.css";
 
-const AdminForm = () => {
+const AdminForm = ({ editMode, editingMeal }) => {
   const [state, formAction] = useFormState(createMeal, { errorMessage: null });
+
+  const [title, setTitle] = useState(editMode ? editingMeal.title : "");
+  const [price, setPrice] = useState(editMode ? editingMeal.price : "");
+  const [description, setDescription] = useState(
+    editMode ? editingMeal.description : ""
+  );
+  const [category, setCategory] = useState(
+    editMode ? editingMeal.category : ""
+  );
+  const [subcategory, setSubcategory] = useState(
+    editMode ? editingMeal.subcategory : ""
+  );
+  const [isVegan, setIsVegan] = useState(
+    editMode ? (editingMeal.vegan === 1 ? true : false) : false
+  );
+  const [isFasting, setIsFasting] = useState(
+    editMode ? (editingMeal.fasting === 1 ? true : false) : false
+  );
+
+  const titleHandler = (e) => {
+    setTitle(e.target.value);
+  };
+
+  const priceHandler = (e) => {
+    setPrice(e.target.value);
+  };
+
+  const descriptionHandler = (e) => {
+    setDescription(e.target.value);
+  };
+
+  const categoryHandler = (e) => {
+    setCategory(e.target.value);
+  };
+
+  const subcategoryHandler = (e) => {
+    setSubcategory(e.target.value);
+  };
+
+  const veganHandler = (e) => {
+    setIsVegan(e.target.checked ? true : false);
+  };
+
+  const fastingHandler = (e) => {
+    setIsFasting(e.target.checked ? true : false);
+  };
 
   return (
     <div className="container-fluid w-50 admin-form">
-      <h1 className="text-center mb-5">Add new meal</h1>
-      <form className="row g-3" action={formAction}>
+      <h1 className="text-center mb-5">
+        {editMode ? "Edit meal" : "Add new meal"}
+      </h1>
+      <form
+        className="row g-3"
+        action={editMode ? editMeal.bind(null, editingMeal.id) : formAction}
+      >
         <div className="col-md-6">
           <label htmlFor="title" className="form-label">
             Title
@@ -23,6 +75,8 @@ const AdminForm = () => {
             name="title"
             placeholder="Meal title"
             required
+            value={title}
+            onChange={titleHandler}
           />
         </div>
 
@@ -37,6 +91,8 @@ const AdminForm = () => {
             name="price"
             placeholder="Meal price"
             required
+            value={price}
+            onChange={priceHandler}
           />
         </div>
 
@@ -51,6 +107,8 @@ const AdminForm = () => {
             name="description"
             placeholder="Meal description"
             required
+            value={description}
+            onChange={descriptionHandler}
           ></textarea>
         </div>
 
@@ -63,6 +121,8 @@ const AdminForm = () => {
             className="form-select"
             name="category"
             required
+            value={category}
+            onChange={categoryHandler}
           >
             <option value="">Category</option>
             <option value="breakfast">Breakfast</option>
@@ -77,7 +137,13 @@ const AdminForm = () => {
           <label htmlFor="subcategory" className="form-label">
             Subcategory
           </label>
-          <select id="subcategory" className="form-select" name="subcategory">
+          <select
+            id="subcategory"
+            className="form-select"
+            name="subcategory"
+            value={subcategory}
+            onChange={subcategoryHandler}
+          >
             <option value="">Subcategory</option>
             <option value="barbeque">Barbeque</option>
             <option value="pasta">Pasta</option>
@@ -92,6 +158,8 @@ const AdminForm = () => {
               type="checkbox"
               id="vegan"
               name="vegan"
+              checked={isVegan}
+              onChange={veganHandler}
             />
             <label className="form-check-label" htmlFor="vegan">
               Vegan
@@ -103,6 +171,8 @@ const AdminForm = () => {
               type="checkbox"
               id="fasting"
               name="fasting"
+              checked={isFasting}
+              onChange={fastingHandler}
             />
             <label className="form-check-label" htmlFor="fasting">
               Fasting
@@ -112,19 +182,19 @@ const AdminForm = () => {
 
         <div className="mb-3">
           <label htmlFor="image" className="form-label">
-            Upload image
+            {editMode ? "Edit image" : "Upload image"}
           </label>
           <input
             className="form-control"
             type="file"
             id="image"
             name="image"
-            required
+            required={editMode ? false : true}
           />
         </div>
 
         <div className="d-flex justify-content-end">
-          <AdminFormButton />
+          <AdminFormButton editMode={editMode} />
           {state.errorMessage && (
             <p className="ms-5 mt-2 text-danger">{state.errorMessage}</p>
           )}
