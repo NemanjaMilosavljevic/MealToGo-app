@@ -37,7 +37,9 @@ const OrderCart = ({ orderedMeals }) => {
               <td>
                 <div className="d-flex gap-5">
                   <div className="fs-5">
-                    &#8364;{meal.price * meal.quantity}
+                    &#8364;
+                    {(meal.onsale === 1 ? 0.75 * meal.price : meal.price) *
+                      meal.quantity}
                   </div>
                   <div className="d-flex">
                     <DeleteMealButton id={meal.id} />

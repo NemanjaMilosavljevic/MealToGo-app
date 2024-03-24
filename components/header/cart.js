@@ -28,7 +28,9 @@ const Cart = ({ toggleCart, orderedMeals, totalPrice }) => {
                 <div className="d-flex flex-column align-items-end gap-1">
                   <DeleteMealButton id={meal.id} />
                   <div className="fs-5">
-                    &#8364;{meal.price * meal.quantity}
+                    &#8364;
+                    {(meal.onsale === 1 ? 0.75 * meal.price : meal.price) *
+                      meal.quantity}
                   </div>
                 </div>
               </li>

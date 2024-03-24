@@ -56,3 +56,19 @@
   background-color: #67cb18;
   border-radius: 12px;
 }
+
+.discount {
+  padding: 6px 12px;
+  font-weight: 500;
+  top: 83.5%;
+  right: 0;
+  background-color: red;
+  text-align: end;
+}
+
+.discount-price {
+  text-decoration: line-through;
+  font-weight: 400;
+  font-size: 1.25rem;
+  text-align: end;
+}

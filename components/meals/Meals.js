@@ -22,6 +22,12 @@ const Meals = ({ meals, searchModal }) => {
               <div className="mb-3" key={meal.id}>
                 <div className="card h-100">
                   <div className="position-relative">
+                    {meal.onsale === 1 && (
+                      <span class="position-absolute text-white discount">
+                        +25% DISCOUNT
+                        <span class="visually-hidden">New alerts</span>
+                      </span>
+                    )}
                     <ul className="position-absolute list-unstyled mt-3">
                       <li
                         className={`bg-meal-flag my-2 px-3 fw-bold ${
@@ -57,8 +63,19 @@ const Meals = ({ meals, searchModal }) => {
                         <div className="card-title fs-4 text-break mealTitle">
                           {meal.title}
                         </div>
-                        <div className="card-title fw-bolder fs-4">
-                          &#8364;{meal.price}
+                        <div>
+                          <div
+                            className={`card-title ${
+                              meal.onsale === 0 ? "fw-bolder fs-4" : ""
+                            }  ${meal.onsale === 1 ? "discount-price" : ""}`}
+                          >
+                            &#8364;{meal.price}
+                          </div>
+                          {meal.onsale === 1 && (
+                            <div className="card-title fw-bolder fs-5 text-warning">
+                              <div>now &#8364;{0.75 * meal.price}</div>
+                            </div>
+                          )}
                         </div>
                       </div>
 

@@ -11,7 +11,7 @@ import OnsaleMeals from "./onsaleMeals";
 
 const Home = ({ onsaleMeals }) => {
   return (
-    <div className="home">
+    <div>
       <div className="text-white hero">
         <div className="hero-content">
           <h1>MEAL TO GO</h1>
@@ -22,13 +22,15 @@ const Home = ({ onsaleMeals }) => {
       </div>
 
       <div className="main">
-        <div className="text-white">
-          <h2 className="text-center">Currently with discount</h2>
+        <div className="mb-5">
+          <h2 className="text-center text-white py-4">
+            MEALS ON SALE!! +25% DISCOUNT
+          </h2>
           <OnsaleMeals onsaleMeals={onsaleMeals} />
         </div>
 
-        <div className="container-fluid d-flex text-white gap-5 justify-content-center align-items-center about">
-          <h2 id="about">About us</h2>
+        <div className="container-fluid d-flex text-white gap-5 justify-content-center align-items-center about py-5">
+          <h2 id="about">ABOUT US</h2>
           <div>
             <p>
               At Meal to Go, we believe that great food should be within
@@ -47,7 +49,7 @@ const Home = ({ onsaleMeals }) => {
           </div>
         </div>
 
-        <footer className="d-flex text-white justify-content-between container">
+        <footer className="d-flex text-white justify-content-between container py-5">
           <div className="d-flex flex-column justify-content-between">
             <Link href="/">
               <Image
