@@ -7,8 +7,9 @@ import linkedinLogo from "@/public/images/linkedin.svg";
 import faceLogo from "@/public/images/face.svg";
 import FooterNav from "./footerNav";
 import OrderButton from "./orderButton";
+import OnsaleMeals from "./onsaleMeals";
 
-const Home = () => {
+const Home = ({ onsaleMeals }) => {
   return (
     <div className="home">
       <div className="text-white hero">
@@ -22,7 +23,8 @@ const Home = () => {
 
       <div className="main">
         <div className="text-white">
-          <h2 className="text-center">Currently at a discount</h2>
+          <h2 className="text-center">Currently with discount</h2>
+          <OnsaleMeals onsaleMeals={onsaleMeals} />
         </div>
 
         <div className="container-fluid d-flex text-white gap-5 justify-content-center align-items-center about">
