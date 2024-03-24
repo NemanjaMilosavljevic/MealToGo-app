@@ -4,7 +4,7 @@ import Image from "next/image";
 import FavoriteMealIcon from "./favoriteMealIcon";
 import "./Meals.css";
 import QuantityPicker from "./quantityPicker";
-import InfoPopup from "../info/infoPopup";
+import InfoPopup from "../modal/Popup";
 import useTogglePopup from "@/hooks/useTogglePopup";
 import Heading from "./heading";
 

@@ -17,6 +17,9 @@ const Heading = ({ hasMeals, searchModal }) => {
             : ""}
         </h1>
       )}
+      {!hasMeals && (
+        <h1 className="text-center text-white my-5">No meals Found!</h1>
+      )}
     </>
   );
 };
