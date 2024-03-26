@@ -110,6 +110,7 @@ const Signup = ({ status }) => {
             onChange={emailHandler}
             name="email"
             required
+            disabled={error}
           />
         </div>
       </div>
@@ -133,6 +134,7 @@ const Signup = ({ status }) => {
             name="password"
             required
             min={7}
+            disabled={error}
           />
         </div>
       </div>

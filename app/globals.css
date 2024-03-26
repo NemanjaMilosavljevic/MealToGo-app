@@ -46,7 +46,7 @@
   color: rgb(209, 10, 10);
   margin-top: 1rem;
   font-weight: bold;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 
 .error-text {
@@ -54,14 +54,19 @@
 }
 
 .error-modal {
+  position: relative;
   background-color: #ffffff;
-  padding: 10px;
   border-radius: 24px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 2rem;
+  justify-content: center;
   margin-bottom: 1rem;
+  padding: 10px;
+}
+
+.error-modal-close:hover {
+  cursor: pointer;
+  transform: scale(1.1);
 }
 
 #body .button-error {
