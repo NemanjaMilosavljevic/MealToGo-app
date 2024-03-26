@@ -194,10 +194,12 @@ const AdminForm = ({ editMode, editingMeal }) => {
         </div>
 
         <div className="d-flex justify-content-end">
-          <AdminFormButton editMode={editMode} />
           {state.errorMessage && (
-            <p className="ms-5 mt-2 text-danger">{state.errorMessage}</p>
+            <p className="me-3 mt-2 text-danger error-text">
+              {state.errorMessage}
+            </p>
           )}
+          <AdminFormButton editMode={editMode} />
         </div>
       </form>
     </div>

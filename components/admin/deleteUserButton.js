@@ -4,7 +4,7 @@ import { deleteUserFromDB } from "@/lib/actions";
 
 const DeleteUserButton = ({ id }) => {
   const deleteUser = () => {
-    if (!window.confirm("Are you sure you want to delete this meal?")) {
+    if (!window.confirm("Are you sure you want to delete this user?")) {
       return;
     }
     deleteUserFromDB(id);

@@ -22,7 +22,9 @@ export const authOptions = {
         );
 
         if (!isValid) {
-          throw new Error("Could not log you in!");
+          throw new Error(
+            "The password is invalid! Please enter correct password!"
+          );
         }
 
         return { email: user.email, name: user.role };

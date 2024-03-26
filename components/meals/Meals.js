@@ -23,9 +23,8 @@ const Meals = ({ meals, searchModal }) => {
                 <div className="card h-100">
                   <div className="position-relative">
                     {meal.onsale === 1 && (
-                      <span class="position-absolute text-white discount">
+                      <span className="position-absolute text-white discount">
                         +25% DISCOUNT
-                        <span class="visually-hidden">New alerts</span>
                       </span>
                     )}
                     <ul className="position-absolute list-unstyled mt-3">

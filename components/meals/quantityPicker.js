@@ -13,6 +13,7 @@ const QuantityPicker = ({ mealQuantity, id, togglePopupInfo }) => {
       togglePopupInfo(id);
       return;
     }
+
     //push meal in cart
     saveMealInCart(id);
 

@@ -40,6 +40,10 @@
   border-color: #67cb18;
 }
 
+.form-check-input:hover {
+  cursor: pointer;
+}
+
 .button-pending {
   background-color: transparent;
   border: 1px solid white;

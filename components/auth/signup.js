@@ -4,12 +4,22 @@ import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { createUser } from "@/lib/auth";
 import { useRouter } from "next/navigation";
+import ErrorModal from "../modal/ErrorModal";
 import "./signup.css";
 
 const Signup = ({ status }) => {
   const [isLogin, setIsLogin] = useState(status === "register" ? false : true);
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredPassword, setEnteredPassword] = useState("");
+  const [isEmailValid, setIsEmailValid] = useState(true);
+  const [isPasswordValid, setIsPasswordValid] = useState(true);
+  const formIsValid = isEmailValid && isPasswordValid;
+
+  const [error, setError] = useState("");
+
+  const resetError = () => {
+    setError("");
+  };
 
   const router = useRouter();
 
@@ -24,22 +34,30 @@ const Signup = ({ status }) => {
 
   const emailHandler = (e) => {
     setEnteredEmail(e.target.value);
+    setIsEmailValid(
+      e.target.value &&
+        e.target.value.includes("@") &&
+        e.target.value.includes(".")
+        ? true
+        : false
+    );
   };
 
   const passwordHandler = (e) => {
     setEnteredPassword(e.target.value);
+    setIsPasswordValid(e.target.value.length < 7 ? false : true);
   };
 
   const loginHandler = async (e) => {
     e.preventDefault();
 
     //client side validation
-    /*   if (!enteredEmail || !enteredPassword) {
+    if (!formIsValid) {
       return;
-    } */
+    }
 
     if (isLogin) {
-      // log user in
+      // log registered user
       const result = await signIn("credentials", {
         callbackUrl: "/",
         redirect: false,
@@ -51,14 +69,18 @@ const Signup = ({ status }) => {
       if (!result.error) {
         router.replace(result.url);
       } else {
-        throw new Error("greska");
+        setError(result.error);
       }
     } else {
       //create new user
       try {
         await createUser(enteredEmail, enteredPassword, "viewer");
+        confirm(
+          "You successfully register! Please login now to start ordering delicious meals!"
+        );
+        router.push("/");
       } catch (err) {
-        console.log(err);
+        setError(err.message);
       }
     }
 
@@ -68,9 +90,13 @@ const Signup = ({ status }) => {
 
   return (
     <form className="container text-white form-login" onSubmit={loginHandler}>
+      {error && <ErrorModal error={error} resetError={resetError} />}
       <h1 className="mb-3">{isLogin ? "Login" : "Sign up"}</h1>
       {!isLogin && <h5 className="mb-5">Register new account</h5>}
 
+      {!isEmailValid && (
+        <p className="text-danger m-0 error-text">Email is not valid!</p>
+      )}
       <div className="row mb-3">
         <label htmlFor="email" className="col-3 col-form-label">
           Email
@@ -83,10 +109,16 @@ const Signup = ({ status }) => {
             value={enteredEmail}
             onChange={emailHandler}
             name="email"
+            required
           />
         </div>
       </div>
 
+      {!isPasswordValid && (
+        <p className="text-danger m-0 error-text">
+          Password require min 7 characters!
+        </p>
+      )}
       <div className="row mb-3">
         <label htmlFor="password" className="col-3 col-form-label">
           Password
@@ -99,6 +131,8 @@ const Signup = ({ status }) => {
             value={enteredPassword}
             onChange={passwordHandler}
             name="password"
+            required
+            min={7}
           />
         </div>
       </div>

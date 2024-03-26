@@ -18,7 +18,11 @@ const Heading = ({ hasMeals, searchModal }) => {
         </h1>
       )}
       {!hasMeals && (
-        <h1 className="text-center text-white my-5">No meals Found!</h1>
+        <h1 className="text-center text-white my-5">
+          {path.startsWith("/favorites")
+            ? "You dont have favorite meals!"
+            : "No meals found!"}
+        </h1>
       )}
     </>
   );

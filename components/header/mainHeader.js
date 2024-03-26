@@ -18,7 +18,7 @@ import {
 import SearchMeals from "../searchMeals/searchMeals";
 import { signOut } from "next-auth/react";
 import useClientSession from "@/hooks/useClientSession";
-import InfoPopup from "../info/infoPopup";
+import Popup from "../modal/Popup";
 import useTogglePopup from "@/hooks/useTogglePopup";
 
 const MainHeader = ({ orders, totalPrice }) => {
@@ -102,7 +102,7 @@ const MainHeader = ({ orders, totalPrice }) => {
 
   return (
     <>
-      {showPopup && <InfoPopup togglePopupInfo={togglePopupInfoHandler} />}
+      {showPopup && <Popup togglePopupInfo={togglePopupInfoHandler} />}
       {searchInput && <SearchMeals searchedMeals={searchedMeals} />}
       <div className="position-relative text-white">
         <header className="d-flex container-fluid justify-content-between headerContainer">

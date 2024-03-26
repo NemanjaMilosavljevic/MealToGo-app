@@ -3,7 +3,7 @@ import Image from "next/image";
 import QuantityPicker from "../meals/quantityPicker";
 import FavoriteMealIcon from "../meals/favoriteMealIcon";
 import useTogglePopup from "@/hooks/useTogglePopup";
-import InfoPopup from "../info/infoPopup";
+import InfoPopup from "../modal/Popup";
 import "./onsaleMeals.css";
 
 const OnsaleMeals = ({ onsaleMeals }) => {
@@ -27,9 +27,8 @@ const OnsaleMeals = ({ onsaleMeals }) => {
               >
                 <div className="card h-100">
                   <div className="position-relative">
-                    <span class="position-absolute text-white discount">
+                    <span className="position-absolute text-white discount">
                       +25% DISCOUNT
-                      <span class="visually-hidden">New alerts</span>
                     </span>
                     <ul className="position-absolute list-unstyled mt-3">
                       <li

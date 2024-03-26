@@ -17,14 +17,17 @@ export async function POST(req, res) {
     !password ||
     password.trim().length < 7
   ) {
-    return Response.json({ message: "Invalid input" }, { status: 422 });
+    return Response.json(
+      { message: "Please enter valid input!" },
+      { status: 422 }
+    );
   }
 
   // check if user exist in db
   const existingUser = getUser(email);
 
   if (existingUser) {
-    return Response.json({ message: "User exists already!" }, { status: 422 });
+    return Response.json({ message: "User already exists!" }, { status: 422 });
   }
 
   const hashedPassword = await hashPassword(password);

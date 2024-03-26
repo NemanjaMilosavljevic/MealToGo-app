@@ -1,4 +1,4 @@
-import "./infoPopup.css";
+import "./Popup.css";
 
 const InfoPopup = ({ togglePopupInfo }) => {
   const hidePopupHandler = () => {
