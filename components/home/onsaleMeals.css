@@ -1,5 +1,5 @@
 .carousel {
-  width: 40%;
+  width: 90%;
   margin: auto;
   margin-top: 2rem;
 }
@@ -9,4 +9,22 @@
   top: 40%;
   height: 50px;
   display: inline;
+}
+
+@media (min-width: 768px) {
+  .carousel {
+    width: 80%;
+  }
+}
+
+@media (min-width: 992px) {
+  .carousel {
+    width: 60%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .carousel {
+    width: 40%;
+  }
 }

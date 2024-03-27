@@ -12,8 +12,8 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding-left: 10rem;
-  padding-top: 10rem;
+  padding-left: 10%;
+  padding-top: 10%;
 }
 
 .hero-content h1 {
@@ -48,13 +48,11 @@
 }
 
 .about {
-  max-width: 1200px;
-  height: 418px;
-  border-top: 1px solid white;
+  border: none;
 }
 
 .about h2 {
-  font-size: 7.5rem;
+  font-size: 5rem;
   margin: 0;
 }
 
@@ -63,7 +61,6 @@
 }
 
 footer {
-  max-width: 1200px;
   padding-bottom: 5rem;
   padding-top: 1rem;
   padding-inline: 0;
@@ -80,5 +77,29 @@ footer li {
 }
 
 .footer-text {
-  font-size: 1.125rem;
+  font-size: 0.85rem;
+}
+
+.footer-copyrigths {
+  font-size: 0.7rem;
+}
+
+@media (min-width: 768px) {
+  .about h2 {
+    font-size: 7.5rem;
+  }
+
+  .footer-copyrigths {
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .about {
+    border-top: 1px solid white;
+  }
+
+  .footer-text {
+    font-size: 1.125rem;
+  }
 }

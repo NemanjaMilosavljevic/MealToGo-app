@@ -13,7 +13,7 @@ const Home = ({ onsaleMeals }) => {
   return (
     <div>
       <div className="text-white hero">
-        <div className="hero-content">
+        <div className="hero-content container">
           <h1>MEAL TO GO</h1>
           <p>delicious food on your</p>
           <p>address within minutes!</p>
@@ -29,8 +29,10 @@ const Home = ({ onsaleMeals }) => {
           <OnsaleMeals onsaleMeals={onsaleMeals} />
         </div>
 
-        <div className="container-fluid d-flex text-white gap-5 justify-content-center align-items-center about py-5">
-          <h2 id="about">ABOUT US</h2>
+        <div className="container d-flex flex-column flex-lg-row text-white gap-5 justify-content-center align-items-center about py-5">
+          <h2 id="about" className="">
+            ABOUT US
+          </h2>
           <div>
             <p>
               At Meal to Go, we believe that great food should be within
@@ -49,9 +51,9 @@ const Home = ({ onsaleMeals }) => {
           </div>
         </div>
 
-        <footer className="d-flex text-white justify-content-between container py-5">
+        <footer className="d-flex text-white justify-content-between gap-5 gap-md-0 container-md container-fluid py-5">
           <div className="d-flex flex-column justify-content-between">
-            <Link href="/">
+            <Link href="/" className="mb-3 mb-sm-0">
               <Image
                 src={logoImage}
                 alt="Meal to go logo image"
@@ -63,7 +65,9 @@ const Home = ({ onsaleMeals }) => {
               Delicious food on your address within minutes!
             </p>
 
-            <p className="mt-5">© 2024 Meal to go. All Rights Reserved.</p>
+            <p className="mt-5 footer-copyrigths">
+              © 2024 Meal to go. All Rights Reserved.
+            </p>
           </div>
 
           <div className="d-flex flex-column justify-content-between h-100">
