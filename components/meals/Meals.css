@@ -38,11 +38,12 @@
   border-bottom: 1px solid white;
 }
 
-.borderGreen {
+.quantity-preview-button {
   border: 1px solid #67cb18;
+  align-self: center;
 }
 
-.borderGreen:hover {
+.quantity-preview-button:hover {
   border: 1px solid #67cb18;
 }
 

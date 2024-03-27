@@ -65,7 +65,7 @@ const QuantityPicker = ({ mealQuantity, id, togglePopupInfo }) => {
         >
           -
         </button>
-        <div className="btn rounded-4 text-white borderGreen px-3">
+        <div className="btn rounded-4 text-white quantity-preview-button px-3">
           {quantity}
         </div>
         <button

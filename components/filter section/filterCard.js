@@ -13,7 +13,7 @@ const FilterCard = () => {
       <div>
         <Breadcrumb />
       </div>
-      <div className="d-flex flex-md-column gap-4">
+      <div className="d-flex flex-md-column gap-2 gap-md-1">
         <MealCategoryFilter />
         <Filter minPrice={minPrice} maxPrice={maxPrice} />
       </div>
