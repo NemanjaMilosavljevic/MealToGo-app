@@ -21,7 +21,13 @@
 }
 
 #body .breadCont ol {
-  padding: 12px 16px;
+  padding: 4px 16px;
+}
+
+@media (min-width: 992px) {
+  #body .breadCont ol {
+    padding: 12px 16px;
+  }
 }
 
 @media (min-width: 768px) {

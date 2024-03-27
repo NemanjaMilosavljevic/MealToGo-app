@@ -105,10 +105,10 @@ const MainHeader = ({ orders, totalPrice }) => {
       {showPopup && <Popup togglePopupInfo={togglePopupInfoHandler} />}
       {searchInput && <SearchMeals searchedMeals={searchedMeals} />}
       <div className="position-relative text-white">
-        <header className="container-fluid headerContainer">
+        <header className="headerContainer">
           <nav className="navbar navbar-expand-lg">
             <div className="container-fluid d-flex p-0">
-              <Link href="/">
+              <Link href="/" className="px-2">
                 <Image
                   src={logoImage}
                   alt="Meal to go logo image"

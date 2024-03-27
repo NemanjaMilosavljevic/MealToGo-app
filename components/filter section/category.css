@@ -15,3 +15,13 @@
   color: #67cb18;
   background-color: #b3b3b333;
 }
+
+.list-group-item.list-group-item-action {
+  padding: 4px 16px;
+}
+
+@media (min-width: 992px) {
+  .list-group-item.list-group-item-action {
+    padding: 8px 16px;
+  }
+}

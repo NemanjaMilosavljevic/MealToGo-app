@@ -3,6 +3,14 @@
   --bs-accordion-border-color: white;
 }
 
+button.accordion-button {
+  padding: 4px 16px;
+}
+
+div.accordion-body {
+  padding: 4px 16px;
+}
+
 .accordion-body {
   color: white;
   font-size: 0.875rem;
