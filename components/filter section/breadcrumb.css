@@ -13,13 +13,19 @@
 }
 
 #body .breadCont {
+  width: 100%;
   background-color: #b3b3b333;
   border-radius: 8px;
   font-size: 0.875rem;
   border: 1px solid white;
-  margin-bottom: 2rem;
 }
 
 #body .breadCont ol {
   padding: 12px 16px;
+}
+
+@media (min-width: 768px) {
+  #body .breadCont {
+    width: auto;
+  }
 }

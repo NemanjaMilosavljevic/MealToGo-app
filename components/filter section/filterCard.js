@@ -9,10 +9,14 @@ const FilterCard = () => {
   const maxPrice = getMaxPrice().price;
 
   return (
-    <div className="filterCard">
-      <Breadcrumb />
-      <MealCategoryFilter />
-      <Filter minPrice={minPrice} maxPrice={maxPrice} />
+    <div className="filterCard d-flex flex-column gap-2">
+      <div>
+        <Breadcrumb />
+      </div>
+      <div className="d-flex flex-md-column gap-4">
+        <MealCategoryFilter />
+        <Filter minPrice={minPrice} maxPrice={maxPrice} />
+      </div>
     </div>
   );
 };

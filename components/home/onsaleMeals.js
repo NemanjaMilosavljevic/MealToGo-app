@@ -32,14 +32,14 @@ const OnsaleMeals = ({ onsaleMeals }) => {
                     </span>
                     <ul className="position-absolute list-unstyled mt-3">
                       <li
-                        className={`bg-meal-flag my-2 px-3 fw-bold ${
+                        className={`bg-meal-flag my-2 px-4 py-1 fw-bold ${
                           meal.vegan ? "" : "d-none"
                         }`}
                       >
                         <div>vegge</div>
                       </li>
                       <li
-                        className={`bg-meal-flag my-2 px-3 fw-bold ${
+                        className={`bg-meal-flag my-2 px-4 py-1 fw-bold ${
                           meal.fasting ? "" : "d-none"
                         }`}
                       >

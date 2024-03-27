@@ -20,9 +20,9 @@ const Menu = ({ searchParams }) => {
   }
 
   return (
-    <div className="d-flex position-relative mt-5">
+    <div className="d-flex flex-column position-relative mt-5 container-fluid">
       <FilterCard />
-      <Meals meals={meals} searchModal={false} />
+      <Meals meals={meals} searchModal={false} favMealPage={false} />
     </div>
   );
 };

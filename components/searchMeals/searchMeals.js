@@ -4,12 +4,6 @@ import Meals from "../meals/Meals";
 const SearchMeals = ({ searchedMeals }) => {
   return (
     <div className={`position-fixed searchModal`}>
-      {searchedMeals.length === 0 && (
-        <h1 className="text-center text-white mt-5">
-          There is no result for your search!
-        </h1>
-      )}
-
       <Meals meals={searchedMeals} searchModal={true} />
     </div>
   );

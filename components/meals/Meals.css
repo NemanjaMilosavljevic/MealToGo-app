@@ -9,6 +9,11 @@
   color: white;
 }
 
+.meal-wrapper {
+  width: 90%;
+  margin-right: 0.5rem;
+}
+
 .card {
   --bs-card-border-width: 0.5px;
   --bs-card-border-color: white;
@@ -71,4 +76,10 @@
   font-weight: 400;
   font-size: 1.25rem;
   text-align: end;
+}
+
+@media (min-width: 768px) {
+  .meal-wrapper {
+    width: 78%;
+  }
 }

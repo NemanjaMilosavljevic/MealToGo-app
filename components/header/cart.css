@@ -1,8 +1,8 @@
 #body .orderCart {
-  position: fixed;
-  min-width: 15vw;
-  max-height: 20vw;
-  top: 56px;
+  position: absolute;
+  min-width: 97vw;
+  max-height: 50vh;
+  top: 40px;
   right: 0.5%;
   z-index: 101;
   border-radius: 10px;
@@ -41,4 +41,17 @@
 
 .meal-title-card {
   font-size: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  #body .orderCart {
+    min-width: 30vw;
+    max-height: 40vh;
+  }
+}
+
+@media (min-width: 992px) {
+  #body .orderCart {
+    min-width: 20vw;
+  }
 }

@@ -6,7 +6,7 @@ const Favorites = () => {
 
   return (
     <div className="d-flex mt-5">
-      <Meals meals={favoriteMeals} />
+      <Meals meals={favoriteMeals} favMealPage={true} />
     </div>
   );
 };

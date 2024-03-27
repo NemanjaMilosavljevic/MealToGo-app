@@ -8,6 +8,8 @@
   position: fixed;
   top: 0;
   color: white;
+  height: 60px;
+  padding: 5px;
 }
 
 .headerContainer li:hover {
@@ -16,8 +18,12 @@
 
 .customBadge {
   position: absolute;
-  right: 0;
-  top: 20%;
+  right: -5%;
+  top: -8%;
+}
+
+#body .navbar {
+  padding: 0;
 }
 
 #body .bg-empty {
@@ -30,14 +36,24 @@
   transition: all 0.3s ease-in;
 }
 
-.logout,
 .admin {
+  padding: 8px;
+  padding-left: 15px;
+}
+
+.logout {
   padding: 8px;
 }
 
 .logout:hover,
+.login:hover,
 .admin:hover {
   cursor: pointer;
+  color: #67cb18;
+}
+
+.second-haeder-content {
+  z-index: 105;
 }
 
 header .navbar-nav {
@@ -57,6 +73,10 @@ header .navbar-nav {
 
 .dropdown-menu.show li:hover {
   background-color: #8383836e;
+}
+
+#body .input-group {
+  width: 150px;
 }
 
 .input-group .form-control:focus {
@@ -85,4 +105,18 @@ header .navbar-nav {
 
 .search-icon:hover {
   cursor: pointer;
+}
+
+.second-header {
+  background-color: #000;
+}
+
+#nav-header {
+  background-color: #000;
+}
+
+@media (min-width: 992px) {
+  .second-header {
+    margin-top: -35px;
+  }
 }

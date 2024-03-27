@@ -6,7 +6,7 @@ const Page = () => {
   return (
     <div className="wrapper container-fluid">
       <h1 className="text-white text-center">Admin panel</h1>
-      <div className="d-flex justify-content-center gap-5">
+      <div className="d-flex flex-column flex-sm-row justify-content-center align-items-center gap-5">
         <DashboardUsersLink />
         <DashboardMealsLink />
       </div>

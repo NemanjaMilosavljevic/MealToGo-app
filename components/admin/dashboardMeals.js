@@ -26,74 +26,76 @@ const DashboardMeals = ({ meals }) => {
   };
 
   return (
-    <table className="table table-orders">
-      <thead>
-        <tr>
-          <th scope="col" style={{ width: "10%" }}>
-            Item ID
-          </th>
-          <th scope="col" style={{ width: "50%" }}>
-            MEAL
-          </th>
-          <th scope="col" style={{ width: "10%" }}>
-            ONSALE
-          </th>
-          <th scope="col" style={{ width: "10%" }}>
-            IMAGE
-          </th>
-          <th scope="col" style={{ width: "10%" }}>
-            EDIT MEAL
-          </th>
-          <th scope="col" style={{ width: "10%" }}>
-            DELETE MEAL
-          </th>
-        </tr>
-      </thead>
-      <tbody className="align-middle">
-        {meals.map((meal) => {
-          return (
-            <tr key={meal.id} style={{ height: "100px" }}>
-              <td scope="row">{meal.id}</td>
-              <td>{meal.title}</td>
-              <td>
-                <div className="form-check ms-3">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    id="onsale"
-                    name="onsale"
-                    checked={meal.onsale === 0 ? false : true}
-                    onChange={setMealOnsale.bind(null, meal.id)}
+    <div className="table-responsive">
+      <table className="table table-orders">
+        <thead>
+          <tr>
+            <th scope="col" style={{ width: "10%" }}>
+              ID
+            </th>
+            <th scope="col" style={{ width: "50%" }}>
+              MEAL
+            </th>
+            <th scope="col" style={{ width: "10%" }}>
+              ONSALE
+            </th>
+            <th scope="col" style={{ width: "10%" }}>
+              IMAGE
+            </th>
+            <th scope="col" style={{ width: "10%" }}>
+              EDIT
+            </th>
+            <th scope="col" style={{ width: "10%" }}>
+              DELETE
+            </th>
+          </tr>
+        </thead>
+        <tbody className="align-middle">
+          {meals.map((meal) => {
+            return (
+              <tr key={meal.id} style={{ height: "100px" }}>
+                <td scope="row">{meal.id}</td>
+                <td>{meal.title}</td>
+                <td>
+                  <div className="form-check ms-3">
+                    <input
+                      className="form-check-input"
+                      type="checkbox"
+                      id="onsale"
+                      name="onsale"
+                      checked={meal.onsale === 0 ? false : true}
+                      onChange={setMealOnsale.bind(null, meal.id)}
+                    />
+                  </div>
+                </td>
+                <td>
+                  <Image
+                    src={meal.image}
+                    alt={meal.description}
+                    width={200}
+                    height={100}
                   />
-                </div>
-              </td>
-              <td>
-                <Image
-                  src={meal.image}
-                  alt={meal.description}
-                  width={200}
-                  height={100}
-                />
-              </td>
-              <td>
-                <button
-                  className="btn edit-button"
-                  onClick={editMealHandler.bind(null, meal.id)}
-                >
-                  Edit
-                </button>
-              </td>
+                </td>
+                <td>
+                  <button
+                    className="btn edit-button"
+                    onClick={editMealHandler.bind(null, meal.id)}
+                  >
+                    Edit
+                  </button>
+                </td>
 
-              <td>
-                <div className="d-flex">
-                  <DeleteMealButton id={meal.id} isAdmin={true} />
-                </div>
-              </td>
-            </tr>
-          );
-        })}
-      </tbody>
-    </table>
+                <td>
+                  <div className="d-flex">
+                    <DeleteMealButton id={meal.id} isAdmin={true} />
+                  </div>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
   );
 };
 

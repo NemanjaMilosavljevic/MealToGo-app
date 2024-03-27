@@ -23,7 +23,7 @@ const OrderButtons = ({ orderedMeals }) => {
   };
 
   return (
-    <div className="d-flex justify-content-end me-5 mb-5">
+    <div className="d-flex justify-content-end me-5 mb-5 container-fluid">
       <button
         className="btn border-white text-white me-3 addmeals-button"
         onClick={redirectToMeals}

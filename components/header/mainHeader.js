@@ -105,149 +105,162 @@ const MainHeader = ({ orders, totalPrice }) => {
       {showPopup && <Popup togglePopupInfo={togglePopupInfoHandler} />}
       {searchInput && <SearchMeals searchedMeals={searchedMeals} />}
       <div className="position-relative text-white">
-        <header className="d-flex container-fluid justify-content-between headerContainer">
-          <div className="d-flex align-items-center gap-3 py-1">
-            <Link href="/" className="mt-1 ps-5">
-              <Image
-                src={logoImage}
-                alt="Meal to go logo image"
-                width={45}
-                height={45}
-              />
-            </Link>
+        <header className="container-fluid headerContainer">
+          <nav className="navbar navbar-expand-lg">
+            <div className="container-fluid d-flex p-0">
+              <Link href="/">
+                <Image
+                  src={logoImage}
+                  alt="Meal to go logo image"
+                  width={45}
+                  height={45}
+                />
+              </Link>
 
-            <nav className="navbar navbar-expand-lg">
-              <div className="container-fluid text-white">
-                <div className="collapse navbar-collapse">
-                  <ul className="navbar-nav me-5 mb-2 mb-lg-0 ">
-                    <li className="nav-item mx-3">
-                      <NavLink href="/meals">Menu</NavLink>
-                    </li>
-                    {session && (
-                      <li className="nav-item mx-3">
-                        <NavLink href="/order">Order</NavLink>
-                      </li>
-                    )}
-                    {session && (
-                      <li className="nav-item mx-3">
-                        <NavLink href="/favorites">Favorites</NavLink>
-                      </li>
-                    )}
-
-                    {role === "admin" && (
-                      <li className="nav-item admin dropdown">
-                        <span
-                          className="dropdown-toggle"
-                          data-bs-toggle="dropdown"
-                          aria-expanded="false"
-                        >
-                          Admin
-                        </span>
-                        <ul className="dropdown-menu">
-                          <li>
-                            <NavLink
-                              className="dropdown-item"
-                              href="/admin/create-meal"
-                            >
-                              Create meal
-                            </NavLink>
-                          </li>
-                          <li>
-                            <NavLink
-                              className="dropdown-item"
-                              href="/admin/dashboard"
-                            >
-                              Edit
-                            </NavLink>
-                          </li>
-                        </ul>
-                      </li>
-                    )}
-                  </ul>
-                </div>
-              </div>
-            </nav>
-          </div>
-
-          <nav className="navbar navbar-expand-lg ms-5">
-            <div className="container-fluid text-white">
-              <div className="collapse navbar-collapse">
-                <ul className="navbar-nav mb-2 mb-lg-0 ">
-                  {searchInputIsVisible && (
-                    <div className="input-group me-3">
-                      <input
-                        className="form-control"
-                        type="search"
-                        placeholder="Search"
-                        aria-label="Search"
-                        value={searchInput}
-                        onChange={searchPerTitle}
-                      />
-                    </div>
-                  )}
-
-                  <Image
-                    src={searchImage}
-                    alt="Search icon"
-                    width={18}
-                    height={18}
-                    onClick={toggleSearchHandler}
-                    className="search-icon"
+              <button
+                type="button"
+                className="navbar-toggler"
+                data-bs-toggle="collapse"
+                data-bs-target="#nav-header"
+                aria-controls="nav-header"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 448 512"
+                  height={20}
+                  width={20}
+                  className="navbar-toggler-icon"
+                >
+                  <path
+                    fill="#ffffff"
+                    d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"
                   />
+                </svg>
+              </button>
 
-                  {!session && (
-                    <li className="nav-item mx-3">
-                      <NavLink href="/login">Log in</NavLink>
-                    </li>
-                  )}
-
+              <div className="collapse navbar-collapse" id="nav-header">
+                <ul className="navbar-nav me-5 mb-2 mb-lg-0 ">
+                  <li className="nav-item mx-3">
+                    <NavLink href="/meals">Menu</NavLink>
+                  </li>
                   {session && (
-                    <li
-                      className="nav-item mx-3 logout"
-                      onClick={logoutHandler}
-                    >
-                      Log out
+                    <li className="nav-item mx-3">
+                      <NavLink href="/order">Order</NavLink>
+                    </li>
+                  )}
+                  {session && (
+                    <li className="nav-item mx-3">
+                      <NavLink href="/favorites">Favorites</NavLink>
                     </li>
                   )}
 
-                  {!session && (
-                    <li className="nav-item me-4" onClick={registerHandler}>
-                      <button className="btn register-btn">Register</button>
+                  {role === "admin" && (
+                    <li className="nav-item admin dropdown">
+                      <span
+                        className="dropdown-toggle"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        Admin
+                      </span>
+                      <ul className="dropdown-menu">
+                        <li>
+                          <NavLink
+                            className="dropdown-item"
+                            href="/admin/create-meal"
+                          >
+                            Create meal
+                          </NavLink>
+                        </li>
+                        <li>
+                          <NavLink
+                            className="dropdown-item"
+                            href="/admin/dashboard"
+                          >
+                            Edit
+                          </NavLink>
+                        </li>
+                      </ul>
                     </li>
                   )}
                 </ul>
               </div>
+            </div>
+          </nav>
 
-              {path !== "/order" && (
-                <div className="collapse navbar-collapse">
-                  <Image
-                    src={cartImage}
-                    alt="Meal cart icon"
-                    width={25}
-                    height={25}
-                    className="align-self-center ms-2 mt-2 myCart"
-                    onClick={toggleCart}
+          <div className="container-fluid text-white d-flex flex-row align-items-center justify-content-end p-0 second-header">
+            <div className="mb-2 mb-lg-0 d-flex flex-row second-haeder-content">
+              {searchInputIsVisible && (
+                <div className="input-group input-group-sm me-2">
+                  <input
+                    className="form-control"
+                    type="search"
+                    placeholder="Search"
+                    aria-label="Search"
+                    value={searchInput}
+                    onChange={searchPerTitle}
                   />
-                  <span
-                    className={`translate-middle badge rounded-pill customBadge mt-1 ${
-                      orders.length === 0 ? "bg-empty" : "bg-danger"
-                    }`}
-                  >
-                    {orders.length}
-                  </span>
+                </div>
+              )}
+
+              <Image
+                src={searchImage}
+                alt="Search icon"
+                width={18}
+                height={18}
+                onClick={toggleSearchHandler}
+                className="search-icon"
+              />
+
+              {!session && (
+                <div className="mx-2 mx-sm-3 mt-2 login">
+                  <NavLink href="/login">Log in</NavLink>
+                </div>
+              )}
+
+              {session && (
+                <div className="mx-0 mx-sm-2 logout" onClick={logoutHandler}>
+                  Log out
+                </div>
+              )}
+
+              {!session && (
+                <div className="me-0 me-sm-3" onClick={registerHandler}>
+                  <button className="btn register-btn">Register</button>
                 </div>
               )}
             </div>
-          </nav>
-        </header>
 
-        {cartIsVisible && (
-          <Cart
-            toggleCart={toggleCart}
-            orderedMeals={orders}
-            totalPrice={totalPrice}
-          />
-        )}
+            {path !== "/order" && (
+              <div className="position-relative">
+                {cartIsVisible && (
+                  <Cart
+                    toggleCart={toggleCart}
+                    orderedMeals={orders}
+                    totalPrice={totalPrice}
+                  />
+                )}
+                <Image
+                  src={cartImage}
+                  alt="Meal cart icon"
+                  width={25}
+                  height={25}
+                  className="align-self-center mx-2 mt-2 myCart "
+                  onClick={toggleCart}
+                />
+                <span
+                  className={`translate-middle badge rounded-pill customBadge mt-1 ${
+                    orders.length === 0 ? "bg-empty" : "bg-danger"
+                  }`}
+                >
+                  {orders.length}
+                </span>
+              </div>
+            )}
+          </div>
+        </header>
       </div>
     </>
   );

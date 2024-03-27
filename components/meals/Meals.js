@@ -8,15 +8,19 @@ import InfoPopup from "../modal/Popup";
 import useTogglePopup from "@/hooks/useTogglePopup";
 import Heading from "./heading";
 
-const Meals = ({ meals, searchModal }) => {
+const Meals = ({ meals, searchModal, favMealPage }) => {
   const [showPopup, togglePopupInfoHandler] = useTogglePopup();
 
   return (
-    <>
+    <div
+      className={`d-flex justify-content-md-end ${
+        searchModal || favMealPage ? "justify-content-md-center" : ""
+      } justify-content-center w-100 mt-5`}
+    >
       {showPopup && <InfoPopup togglePopupInfo={togglePopupInfoHandler} />}
-      <div className="container">
+      <div className="meal-wrapper">
         <Heading hasMeals={meals.length > 0} searchModal={searchModal} />
-        <div className="row row-cols-4">
+        <div className="row row-cols-1  row-cols-md-2 row-cols-xl-3 row-cols-xxl-4">
           {meals.map((meal) => {
             return (
               <div className="mb-3" key={meal.id}>
@@ -29,14 +33,14 @@ const Meals = ({ meals, searchModal }) => {
                     )}
                     <ul className="position-absolute list-unstyled mt-3">
                       <li
-                        className={`bg-meal-flag my-2 px-3 fw-bold ${
+                        className={`bg-meal-flag my-2 px-4 py-1 fw-bold ${
                           meal.vegan ? "" : "d-none"
                         }`}
                       >
                         <div>vegge</div>
                       </li>
                       <li
-                        className={`bg-meal-flag my-2 px-3 fw-bold ${
+                        className={`bg-meal-flag my-2 px-4 py-1 fw-bold ${
                           meal.fasting ? "" : "d-none"
                         }`}
                       >
@@ -93,7 +97,7 @@ const Meals = ({ meals, searchModal }) => {
           })}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

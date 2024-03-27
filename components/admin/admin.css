@@ -2,8 +2,9 @@
   background-color: #4d4d4d94;
   border: 0.5px solid white;
   border-radius: 24px;
-  margin-top: 50%;
-  padding: 100px;
+  padding: 50px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .adminCard:hover {
@@ -13,11 +14,14 @@
 }
 
 .admin-form {
-  margin-top: 70px;
+  margin-top: 110px;
+  margin-bottom: 2rem;
   color: white;
   background-color: #46434354;
   border-radius: 24px;
-  padding: 30px 100px;
+  padding-inline: 20px;
+  padding-block: 30px;
+  width: 90%;
 }
 
 .admin-form .form-control:focus {
@@ -75,4 +79,26 @@
 
 .edit-button:hover {
   background-color: #66cb18c0;
+}
+
+@media (min-width: 576px) {
+  .admin-form {
+    width: 75%;
+  }
+
+  .adminCard {
+    padding: 70px;
+    margin-top: 50%;
+  }
+}
+
+@media (min-width: 992px) {
+  .admin-form {
+    width: 50%;
+    padding-inline: 100px;
+  }
+
+  .adminCard {
+    padding: 100px;
+  }
 }

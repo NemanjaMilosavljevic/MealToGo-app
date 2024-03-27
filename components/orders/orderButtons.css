@@ -1,6 +1,7 @@
 #body .payment-button {
   background-color: #67cb18;
   padding-inline: 16px;
+  font-size: 0.8rem;
 }
 
 #body .payment-button:hover {
@@ -8,7 +9,21 @@
   transform: scale(1.05);
 }
 
+#body .addmeals-button {
+  font-size: 0.8rem;
+}
+
 #body .addmeals-button:hover {
   background-color: rgba(104, 104, 104, 0.2);
   transform: scale(1.05);
+}
+
+@media (min-width: 576px) {
+  #body .payment-button {
+    font-size: 1rem;
+  }
+
+  #body .addmeals-button {
+    font-size: 1rem;
+  }
 }

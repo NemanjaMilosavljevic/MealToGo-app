@@ -5,6 +5,7 @@ const Page = () => {
   const meals = getMeals();
   return (
     <div className="wrapper p-5">
+      <h1 className="text-white text-center">Meals</h1>
       <DashboardMeals meals={meals} />;
     </div>
   );

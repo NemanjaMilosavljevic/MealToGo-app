@@ -56,15 +56,15 @@ const AdminForm = ({ editMode, editingMeal }) => {
   };
 
   return (
-    <div className="container-fluid w-50 admin-form">
+    <div className="container-fluid admin-form">
       <h1 className="text-center mb-5">
         {editMode ? "Edit meal" : "Add new meal"}
       </h1>
       <form
-        className="row g-3"
+        className="row justify-content-center g-3"
         action={editMode ? editMeal.bind(null, editingMeal.id) : formAction}
       >
-        <div className="col-md-6">
+        <div className="col-8 col-lg-6">
           <label htmlFor="title" className="form-label">
             Title
           </label>
@@ -80,7 +80,7 @@ const AdminForm = ({ editMode, editingMeal }) => {
           />
         </div>
 
-        <div className="col-md-6">
+        <div className="col-8 col-lg-6">
           <label htmlFor="price" className="form-label">
             Price
           </label>
@@ -96,7 +96,7 @@ const AdminForm = ({ editMode, editingMeal }) => {
           />
         </div>
 
-        <div className="mb-3">
+        <div className="mb-3 col-8 col-lg-12">
           <label htmlFor="description" className="form-label">
             Description
           </label>
@@ -112,7 +112,7 @@ const AdminForm = ({ editMode, editingMeal }) => {
           ></textarea>
         </div>
 
-        <div className="col-md-4">
+        <div className="col-8 col-lg-6">
           <label htmlFor="category" className="form-label">
             Category
           </label>
@@ -133,7 +133,7 @@ const AdminForm = ({ editMode, editingMeal }) => {
           </select>
         </div>
 
-        <div className="col-md-4">
+        <div className="col-8 col-lg-6">
           <label htmlFor="subcategory" className="form-label">
             Subcategory
           </label>
@@ -151,7 +151,7 @@ const AdminForm = ({ editMode, editingMeal }) => {
           </select>
         </div>
 
-        <div className="col-12">
+        <div className="col-8 col-lg-12">
           <div className="form-check">
             <input
               className="form-check-input"
@@ -180,7 +180,7 @@ const AdminForm = ({ editMode, editingMeal }) => {
           </div>
         </div>
 
-        <div className="mb-3">
+        <div className="mb-3 col-8 col-lg-12">
           <label htmlFor="image" className="form-label">
             {editMode ? "Edit image" : "Upload image"}
           </label>

@@ -1,7 +1,13 @@
 #body .filterCard {
-  position: fixed;
-  top: 70px;
   min-width: 9%;
-  margin-top: 1rem;
-  margin-left: 1rem;
+  margin-top: 3.5rem;
+}
+
+@media (min-width: 768px) {
+  #body .filterCard {
+    position: fixed;
+    top: 88px;
+    max-width: 20%;
+    margin-top: 1rem;
+  }
 }
