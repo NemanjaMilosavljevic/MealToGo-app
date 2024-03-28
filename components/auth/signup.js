@@ -74,10 +74,9 @@ const Signup = ({ status }) => {
     } else {
       //create new user
       try {
-        await createUser(enteredEmail, enteredPassword, "viewer");
-        confirm(
-          "You successfully register! Please login now to start ordering delicious meals!"
-        );
+        const data = await createUser(enteredEmail, enteredPassword, "viewer");
+
+        confirm(data.message);
         router.push("/");
       } catch (err) {
         setError(err.message);
